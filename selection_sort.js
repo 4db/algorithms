@@ -1,3 +1,4 @@
+
 function selectionSort(items){
     for (i=0; i < items.length; i++) {
         var min = i;
