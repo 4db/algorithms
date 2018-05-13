@@ -80,5 +80,5 @@ var adjList = [
     ];
 var bfsInfo = doBFS(adjList, 3);
 for (var i = 0; i < adjList.length; i++) {
-    println("vertex " + i + ": distance = " + bfsInfo[i].distance + ", predecessor = " + bfsInfo[i].predecessor);
+    console.log("vertex " + i + ": distance = " + bfsInfo[i].distance + ", predecessor = " + bfsInfo[i].predecessor);
 }
