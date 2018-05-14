@@ -4,13 +4,18 @@ function HashTable() {
   vm._buckets = [];
   vm._buckets.length = vm._bucketSize;
 
+  /* Simple hash code function(Convert to 32bit integer)
+   * Recomended used SHA-1 or SHA-2
+   */
   vm.hashCode = function(str) {
     var hash = 0, i, chr;
-    if (str.length === 0) return hash;
+    if (str.length === 0) {
+      return hash;
+    }
     for (i = 0; i < str.length; i++) {
-    chr   = str.charCodeAt(i);
-    hash  = ((hash << 5) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
+      chr   = str.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0;
     }
     return hash % vm._bucketSize
   };
@@ -28,7 +33,6 @@ function HashTable() {
       if (bucketId >= vm._bucketSize) {
         bucketId = 0;
       }
-
       if (vm._buckets[bucketId] === undefined) {
         return undefined;
       }
@@ -56,13 +60,11 @@ function HashTable() {
       if (bucketId >= vm._bucketSize) {
         bucketId = 0;
       }
-
       if (!vm._buckets[bucketId]) {
         vm._buckets[bucketId] = {};
         vm._buckets[bucketId][key] = value;
         return;
       }
-
       bucketId++;
     }
     throw 'HashTable is full, a rehash is needed';
