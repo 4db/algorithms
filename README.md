@@ -17,6 +17,8 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-in
  - Lecture 11: Integer Arithmetic, Karatsuba Multiplication
  - Lecture 12: Square Roots, Newton's Method
  - Lecture 13: Breadth-First Search (BFS)
+   - [breadth first search](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_objs_arr.js) - on a graph represent an object of array edges
+   - [breadth first search](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search.js) - on a graph represent an Queue object
  - Lecture 14: Depth-First Search (DFS), Topological Sort
  - Lecture 15: Single-Source Shortest Paths Problem
  - Lecture 16: Dijkstra
