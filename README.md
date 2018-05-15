@@ -20,6 +20,8 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-in
    - [breadth first search](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_objs_arr.js) - on a graph represent an object of array edges
    - [breadth first search](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search.js) - on a graph represent an Queue object
  - Lecture 14: Depth-First Search (DFS), Topological Sort
+   - [depth-first search](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_recursion.js) recrusion
+   - TODO DFS -> Stack -> By storing the vertices in a stack, the vertices are explored by lurching along a path, visiting a new adjacent vertex if there is one available.
  - Lecture 15: Single-Source Shortest Paths Problem
  - Lecture 16: Dijkstra
  - Lecture 17: Bellman-Ford
