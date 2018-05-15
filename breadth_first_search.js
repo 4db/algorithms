@@ -1,24 +1,8 @@
-/* A Queue object for queue-like functionality over JavaScript arrays. */
-var Queue = function() {
-    var vm = this;
-    vm.items = [];
-
-    vm.enqueue = function(obj) {
-        vm.items.push(obj);
-    };
-
-    vm.dequeue = function() {
-        return vm.items.shift();
-    };
-
-    vm.isEmpty = function() {
-        return vm.items.length === 0;
-    };
-};
-
-
 /*
  * Performs a breadth-first search on a graph
+ *
+ * BFS -> Queue -> By storing the vertices in a queue, the oldest unexplored vertices are explored first.
+ *
  * @param {array} graph - Graph, represented as adjacency lists.
  * @param {number} source - The index of the source vertex.
  * @returns {array} Array of objects describing each vertex, like
@@ -67,7 +51,23 @@ var doBFS = function(graph, source) {
     return bfsInfo;
 };
 
+/* A Queue object for queue-like functionality over JavaScript arrays. */
+var Queue = function() {
+    var vm = this;
+    vm.items = [];
 
+    vm.enqueue = function(obj) {
+        vm.items.push(obj);
+    };
+
+    vm.dequeue = function() {
+        return vm.items.shift();
+    };
+
+    vm.isEmpty = function() {
+        return vm.items.length === 0;
+    };
+};
 var adjList = [
     [1],
     [0, 4, 5],
