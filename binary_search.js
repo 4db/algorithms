@@ -1,3 +1,11 @@
+/*
+ * Performs a Binary search 
+ *  * Hint: works on sorted arrays
+ *
+ * @param {array} arr
+ * @param {string|int} toSearch
+ * @returns -1 | toSearch
+ */
 function binarySearch(arr, toSearch) {
     var max    = arr.length - 1;
     var middle = Math.floor(max / 2);
