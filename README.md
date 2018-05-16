@@ -12,6 +12,7 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-in
  - Lecture 6: AVL Trees, AVL Sort
  - Lecture 7: Counting Sort, Radix Sort, Lower Bounds for Sorting
  - Lecture 8: Hashing with Chaining
+   - [hash_chaining.js](https://github.com/aldb/js_algorithms/blob/master/hash_chaining.js)
  - Lecture 9: Table Doubling, Karp-Rabin
  - Lecture 10: Open Addressing, Cryptographic Hashing
  - Lecture 11: Integer Arithmetic, Karatsuba Multiplication
