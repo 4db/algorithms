@@ -7,6 +7,9 @@ https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-in
  - Lecture 1: Algorithmic Thinking, Peak Finding
  - Lecture 2: Models of Computation, Document Distance
  - Lecture 3: Insertion Sort, Merge Sort
+    -[quick sort](https://github.com/aldb/js_algorithms/blob/master/quick_sort.js)
+    -[merge sort](https://github.com/aldb/js_algorithms/blob/master/merge_sort.js)
+    -[selection sort](https://github.com/aldb/js_algorithms/blob/master/selection_sort.js)
  - Lecture 4: Heaps and Heap Sort
  - Lecture 5: Binary Search Trees, BST Sort
  - Lecture 6: AVL Trees, AVL Sort
