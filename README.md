@@ -6,10 +6,11 @@
 
  - Lecture 1: Algorithmic Thinking, Peak Finding
  - Lecture 2: Models of Computation, Document Distance
+    - [document distance](https://github.com/aldb/js_algorithms/blob/master/document_distance.js)
  - Lecture 3: Insertion Sort, Merge Sort
-    -[quick sort](https://github.com/aldb/js_algorithms/blob/master/quick_sort.js)
-    -[merge sort](https://github.com/aldb/js_algorithms/blob/master/merge_sort.js)
-    -[selection sort](https://github.com/aldb/js_algorithms/blob/master/selection_sort.js)
+    - [quick sort](https://github.com/aldb/js_algorithms/blob/master/quick_sort.js)
+    - [merge sort](https://github.com/aldb/js_algorithms/blob/master/merge_sort.js)
+    - [selection sort](https://github.com/aldb/js_algorithms/blob/master/selection_sort.js)
  - Lecture 4: Heaps and Heap Sort
  - Lecture 5: Binary Search Trees, BST Sort
  - Lecture 6: AVL Trees, AVL Sort
