@@ -15,12 +15,15 @@
  - Lecture 4: Heaps and Heap Sort
     - [Heap sort](https://github.com/aldb/js_algorithms/blob/master/heap_sort.js)
  - Lecture 5: Binary Search Trees, BST Sort
+    - [Binary Search Tree](https://github.com/aldb/js_algorithms/blob/master/binary_search_tree.js)
  - Lecture 6: AVL Trees, AVL Sort
  - Lecture 7: Counting Sort, Radix Sort, Lower Bounds for Sorting
+     - [Counting Sort](https://github.com/aldb/js_algorithms/blob/master/counting_sort.js
  - Lecture 8: Hashing with Chaining
    - [hash_chaining.js](https://github.com/aldb/js_algorithms/blob/master/hash_chaining.js)
  - Lecture 9: Table Doubling, Karp-Rabin
  - Lecture 10: Open Addressing, Cryptographic Hashing
+     - [Hash open addressing](https://github.com/aldb/js_algorithms/blob/master/hash_open_addressing.js)
  - Lecture 11: Integer Arithmetic, Karatsuba Multiplication
    - [Karatsuba multiplication algorithm](https://github.com/aldb/js_algorithms/blob/master/karatsuba.js)
  - Lecture 12: Square Roots, Newton's Method
