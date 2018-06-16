@@ -42,7 +42,9 @@
      - [bellman_ford.js](https://github.com/aldb/js_algorithms/blob/master/bellman_ford.js)
  - Lecture 18: Speeding up Dijkstra
  - Lecture 19: Dynamic Programming I: Fibonacci, Shortest Paths
+     - [fibonacci.js](https://github.com/aldb/js_algorithms/blob/master/fibonacci.js)
  - Lecture 20: Dynamic Programming II: Text Justification, Blackjack
+      - [text_justification_dp.js](https://github.com/aldb/js_algorithms/blob/master/text_justification_dp.js)
  - Lecture 21: Dynamic Programming III: Parenthesization, Edit Distance, Knapsack
  - Lecture 22: Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.
  - Lecture 23: Computational Complexity
