@@ -124,6 +124,31 @@
       <td colspan="4"><code >O(n log(n))</td>
       <td><code>O(1)</code></td>
     </tr>
+    <tr>
+      <th></th>
+      <th colspan="4">Graph Algorithms</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a></td>
+      <td colspan="4"><code >O(E+VlogV)</td>
+      <td><code>O(V^2)</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Breadth-first_search">Breadth first search</a></td>
+      <td colspan="4"><code >O(E+V)</td>
+      <td><code>O(V)</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Depth-first_search">Depth first search</a></td>
+      <td colspan="4"><code >O(E+V)</td>
+      <td><code>O(V)</code></td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm">Bellman Ford</a></td>
+      <td colspan="4"><code >O(EV)</td>
+      <td><code>O(V)</code></td>
+    </tr>
 </tbody>
 </table>
 
