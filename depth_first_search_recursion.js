@@ -1,60 +1,81 @@
 /*
+ * The recursive implementation breadth-first search traversal
  * Performs a recursion depth-first search on a graph represent an object of array edges
  * @param {string} source - The source vertex.
  * @param {object} tree - Graph, represented as object.
  * @returns {object} Object of parents: {'A' : 'None', 'B' : 'A', 'C' : 'A'}
  */
-function doDFS(root, tree) {
-  var parentInfo   = {};
-  parentInfo[root] = 'None';
+function depth_first_search_traversal(root, tree) {
+  let visited   = {};
+  visited[root] = 'None';
 
   recursionDFSvisit = function(source, tree) {
-    tree[source].map(function(vertex) {
-      if (!parentInfo[vertex]) {
-        parentInfo[vertex] = source;
-        recursionDFSvisit(vertex, tree);
-      }
-    });
+	for (let i = 0; i < tree[source].length; i++) {
+	    const vertex = tree[source][i];
+            if (!visited[vertex]) {
+                visited[vertex] = source;
+                recursionDFSvisit(vertex, tree);
+            }
+	}
   };
-  // Search from start vertex root 
+  // Search from start vertex root
   recursionDFSvisit(root, tree);
-
-  // Finish explore entire graph
-  for (source in tree) {
-    if (!parentInfo[source]) {
-      parentInfo[source] = 'None';
-	    recursionDFSvisit(source, tree);
-    }
-  }
-  return parentInfo;
+  return visited;
 };
 
-/* Uncomment for testing on Directed graph
-var tree = {
-  'A' : ['B', 'C'],
-  'B' : ['D', 'E'],
-  'C' : ['F'],
-  'D' : ['G', 'H'],
-  'E' : [],
-  'F' : ['I', 'J'],
-  'G' : [],
-  'H' : [],
-  'I' : [],
-  'J' : [],
-};
-for (root in tree) {
-  var info = doDFS(root, tree);
-  console.log('Generated path info for ' + root + '.', info);
-  var recursionPrint = function(source, obj) {
-    if (obj[source]) {
-      parents.push(source);
-      return recursionPrint(obj[source], obj);
-     }
-  };
-  for (source in info) {
-    var parents = [];
-    recursionPrint(info[source], info)
-     console.log('Print parents for ' + source, parents);
+(() => {
+  console.log('Testing started: depth-first search traversal');
+  const it = ((description, func) => {
+    console.log(' => ' + description + ' => ' +  func());
+  });
+
+    //      A
+    //    /  \
+    //   B    C
+    //  / \    \
+    // D   E   F
+    /// \     / \
+    //G H    I   J
+    const adjacencyMatrix = {
+      'A' : ['B', 'C'],
+      'B' : ['D', 'E'],
+      'C' : ['F'],
+      'D' : ['G', 'H'],
+      'E' : [],
+      'F' : ['I', 'J'],
+      'G' : [],
+      'H' : [],
+      'I' : [],
+      'J' : [],
+    };
+
+  it('#1 Test root node', () => {
+    const input    = 'A';
+    const expect   = 'None';
+    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    if (expect === response[input]) {
+      return 'PASSED';
     }
-}
-*/
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+
+  it('#2 Test parent of leaf J', () => {
+    const input    = 'A';
+    const expect   = 'F';
+    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    if (expect === response['J']) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+
+  it('#3 Test parent of leaf G', () => {
+    const input    = 'A';
+    const expect   = 'D';
+    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    if (expect === response['G']) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+})();
