@@ -180,8 +180,10 @@
    - [breadth_first_search_objs_arr.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_objs_arr.js) - on a graph represent an object of array edges
    - [breadth_first_search.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search.js) - on a graph represent an Queue object
  - Lecture 14: Depth-First Search (DFS), Topological Sort
-   - [depth_first_search_recursion.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_recursion.js) recrusion
-   - TODO DFS -> Stack -> By storing the vertices in a stack, the vertices are explored by lurching along a path, visiting a new adjacent vertex if there is one available.
+    - [depth_first_search.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search.js)
+    - [depth_first_search_recursion.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_recursion.js)
+    - [depth_first_search_traversal.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_traversal.js)
+    - [depth_first_search_traversal_recursion.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_traversal_recursion.js)
    - [topological_sort.js](https://github.com/aldb/js_algorithms/blob/master/topological_sort.js)
  - Lecture 15: Single-Source Shortest Paths Problem
    - Unweighted, undirected [graph.js](https://github.com/aldb/js_algorithms/blob/master/graph.js)
