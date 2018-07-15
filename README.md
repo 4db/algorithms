@@ -177,8 +177,9 @@
    - [karatsuba.js](https://github.com/aldb/js_algorithms/blob/master/karatsuba.js) - Karatsuba multiplication algorithm
  - Lecture 12: Square Roots, Newton's Method
  - Lecture 13: Breadth-First Search (BFS)
-   - [breadth_first_search_objs_arr.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_objs_arr.js) - on a graph represent an object of array edges
-   - [breadth_first_search.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search.js) - on a graph represent an Queue object
+    - [breadth_first_search.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search.js)
+    - [breadth_first_search_queue.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_queue.js) - with an Queue Classes
+    - [breadth_first_search_traversal.js](https://github.com/aldb/js_algorithms/blob/master/breadth_first_search_queue.js) 
  - Lecture 14: Depth-First Search (DFS), Topological Sort
     - [depth_first_search.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search.js)
     - [depth_first_search_recursion.js](https://github.com/aldb/js_algorithms/blob/master/depth_first_search_recursion.js)
