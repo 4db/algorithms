@@ -1,84 +1,104 @@
 /*
- * Performs a breadth-first search on a graph
- *
- * BFS -> Queue -> By storing the vertices in a queue, the oldest unexplored vertices are explored first.
- *
- * @param {array} graph - Graph, represented as adjacency lists.
- * @param {number} source - The index of the source vertex.
- * @returns {array} Array of objects describing each vertex, like
- *     [{distance: _, predecessor: _ }]
+ * A Queue object for queue-like functionality over JavaScript arrays.
  */
-var doBFS = function(graph, source) {
-    var bfsInfo = {};
+class Queue {
 
-    for (var i = 0; i < graph.length; i++) {
-        bfsInfo[i] = {
-            distance: null,
-            predecessor: null
-        };
+    constructor() {
+        this.items = [];
     }
 
-    bfsInfo[source].distance = 0;
+    enqueue(obj) {
+        this.items.push(obj);
+    }
 
-    var queue = new Queue();
-    queue.enqueue(source);
+    dequeue() {
+        return this.items.shift();
+    };
+
+    isEmpty() {
+        return this.items.length === 0;
+    };
+};
+
+/*
+ * The non-recursive implementation an breadth-first search traversal (queue - Array)
+ * Performs a breadth-first search on a graph represent an object of array edges(Adjacency matrix)
+ * @param {string} root - The root|source vertex.
+ * @param {object} tree - Graph, represented as object.
+ * @returns {object} Object of distances and parents: {A :{distance: 0, parent: "None"}}
+ */
+function breadth_first_search_traversal(root, graph) {
+    const distance = {[root] : {distance : 0, parent: 'None'}};
+    const queue = new Queue();
+    queue.enqueue(root);
 
     while(!queue.isEmpty()) {
-        var u = queue.dequeue();
-        for(var i = 0; i<graph[u].length; i++) {
-            var v = graph[u][i];
-            if (bfsInfo[v].distance === null) {
-               bfsInfo[v].distance = bfsInfo[u].distance + 1;
-               bfsInfo[v].predecessor = u;
-               queue.enqueue(v);
+        const current = queue.dequeue();
+        for (let i = 0; i < graph[current].length; i++) {
+            const node = graph[current][i];
+            if (!distance[node]) {
+                distance[node] = {distance : distance[current].distance + 1, parent: current};
+                queue.enqueue(node);
             }
         }
     }
-    // Traverse the graph
-    
-    // As long as the queue is not empty:
-    //  Repeatedly dequeue a vertex u from the queue.
-    //  
-    //  For each neighbor v of u that has not been visited:
-    //     Set distance to 1 greater than u's distance
-    //     Set predecessor to u
-    //     Enqueue v
-    //
-    //  Hint:
-    //  use graph to get the neighbors,
-    //  use bfsInfo for distances and predecessors 
-    
-    return bfsInfo;
+    return distance;
 };
 
-/* A Queue object for queue-like functionality over JavaScript arrays. */
-var Queue = function() {
-    var vm = this;
-    vm.items = [];
+(() => {
+  console.log('Testing started: breadth first search traversal');
+  const it = ((description, func) => {
+    console.log(' => ' + description + ' => ' +  func());
+  });
 
-    vm.enqueue = function(obj) {
-        vm.items.push(obj);
+    //      A
+    //    /  \
+    //   B    C
+    //  / \    \
+    // D   E   F 
+    /// \     / \
+    //G H    I   J
+    const adjacencyMatrix = {
+      'A' : ['B', 'C'],
+      'B' : ['D', 'E'],
+      'C' : ['F'],
+      'D' : ['G', 'H'],
+      'E' : [],
+      'F' : ['I', 'J'],
+      'G' : [],
+      'H' : [],
+      'I' : [],
+      'J' : [],
     };
 
-    vm.dequeue = function() {
-        return vm.items.shift();
-    };
+  it('#1 Test root node', () => {
+    const input    = 'A';
+    const expect   = {distance : 0, parent: 'None'};
+    const response = breadth_first_search_traversal(input, adjacencyMatrix);
 
-    vm.isEmpty = function() {
-        return vm.items.length === 0;
-    };
-};
-var adjList = [
-    [1],
-    [0, 4, 5],
-    [3, 4, 5],
-    [2, 6],
-    [1, 2],
-    [1, 2, 6],
-    [3, 5],
-    []
-    ];
-var bfsInfo = doBFS(adjList, 3);
-for (var i = 0; i < adjList.length; i++) {
-    console.log("vertex " + i + ": distance = " + bfsInfo[i].distance + ", predecessor = " + bfsInfo[i].predecessor);
-}
+    if (expect.parent === response[input].parent) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+
+  it('#2 Test parent of leaf J', () => {
+    const input    = 'A';
+    const expect   = {distance: 3, parent: "F"};
+    const response = breadth_first_search_traversal(input, adjacencyMatrix);
+    if (expect.parent === response['J'].parent) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+
+  it('#3 Test parent of leaf G', () => {
+    const input    = 'A';
+    const expect   = {distance: 3, parent: "D"};
+    const response = breadth_first_search_traversal(input, adjacencyMatrix);
+    if (expect.parent === response['G'].parent) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + response;
+  });
+})();
