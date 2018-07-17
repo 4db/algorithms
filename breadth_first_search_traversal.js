@@ -19,7 +19,7 @@ function breadth_first_search_traversal(root, graph) {
         }
     }
     return distance;
-};
+}
 
 (() => {
   console.log('Testing started: breadth first search traversal');
