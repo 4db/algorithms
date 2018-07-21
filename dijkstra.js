@@ -28,13 +28,11 @@ function dijkstra(root, graph) {
     return distance;
 }
 
-
 (() => {
   console.log('Testing started: Dijkstra');
   const it = ((description, func) => {
     console.log(' => ' + description + ' => ' +  func());
   });
-
 //              A
 //            /   \
 //          1      1
