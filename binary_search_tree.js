@@ -1,139 +1,221 @@
-function Node(data) {
-    var vm   = this;
-    vm.data  = data;
-    vm.left  = null;
-    vm.right = null;
+class Node {
+  constructor(data) {
+    this.data  = data;
+    this.left  = null;
+    this.right = null;
+    }
 };
 
-function BinarySearchTree() {
-    var vm  = this;
-    vm.root = null;
-    
-    vm.insert = function(data) {
-        var newNode = new Node(data);
-        if (vm.root === null) {
-            vm.root = newNode;
-            return;
-        }
-        vm.insertNode(vm.root, newNode);
-        return;
-    };
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
 
-    vm.insertNode = function(node, newNode) {
-        // if the data is less than the node
-        // data move left of the tree 
-        if (newNode.data < node.data) {
-            if (node.left === null) {
-                node.left = newNode;
-                return;
-            }
-            vm.insertNode(node.left, newNode);
-            return;
-        }
-        if (node.right === null) {
-            node.right = newNode;
-            return;
-        }
-        vm.insertNode(node.right, newNode);
-        return;
-    };
+  insert(data) {
+      const newNode = new Node(data);
+      if (this.root === null) {
+          this.root = newNode;
+          return;
+      }
+      this.insertNode(this.root, newNode);
+      return;
+  }
 
-    vm.remove = function(data) {
-        vm.root = vm.removeNode(vm.root, data);
-    };
+  insertNode(node, newNode) {
+      // if the data is less than the node
+      // data move left of the tree 
+      if (newNode.data < node.data) {
+          if (node.left === null) {
+              node.left = newNode;
+              return;
+          }
+          this.insertNode(node.left, newNode);
+          return;
+      }
+      if (node.right === null) {
+          node.right = newNode;
+          return;
+      }
+      this.insertNode(node.right, newNode);
+      return;
+  }
 
-    vm.removeNode = function(node, key) {
-        if (node === null || (node.left === null && node.right === null)) {
-            return null;
-        }
-        if (key < node.data) {
-            node.left = vm.removeNode(node.left, key);
-            return node;
-        }
-        if (key > node.data) {
-            node.right = vm.removeNode(node.right, key);
-            return node;
-        }
-        if (node.left === null) {
-            return node.right;
-        }
-        if (node.right === null) {
-            return node.left;
-        }
-        // Deleting node with two children
-        // minumum node of the rigt subtree
-        // is stored in aux
-        var aux = vm.findMinNode(node.right);
-        node.data = aux.data;
-        node.right = vm.removeNode(node.right, aux.data);
-        return node;
-        
-    };
+  remove(data) {
+      this.root = this.removeNode(this.root, data);
+  }
 
-    /*
-     * inorder(node) – It performs inorder traversal of a tree starting from a given node
-     * Algorithm for inorder:
-     * 1. Traverse the left subtree i.e perform inorder on left subtree
-     * 2. Visit the root
-     * 3. Traverse the right subtree i.e perform inorder on right subtree
-     */
-    vm.inorder = function(node) {
-        if (node !== null) {
-            vm.inorder(node.left);
-            console.log(node.data);
-            vm.inorder(node.right);
-        }
-    };
-    
-    /*
-     * preorder(node) – It performs preorder traversal of a tree starting from a given node.
-     * Algorithm for preoder:
-     * 1. Visit the root
-     * 2. Traverse the left subtree i.e perform inorder on left subtree
-     * 3. Traverse the right subtree i.e perform inorder on right subtree
-     */
-    vm.preorder = function(node) {
-        if (node !== null) {
-            console.log(node.data);
-            vm.preorder(node.left);
-            vm.preorder(node.right);
-        }
-    };
+  removeNode(node, key) {
+      if (node === null || (node.left === null && node.right === null)) {
+          return null;
+      }
+      if (key < node.data) {
+          node.left = this.removeNode(node.left, key);
+          return node;
+      }
+      if (key > node.data) {
+          node.right = this.removeNode(node.right, key);
+          return node;
+      }
+      if (node.left === null) {
+          return node.right;
+      }
+      if (node.right === null) {
+          return node.left;
+      }
+      // Deleting node with two children
+      // minumum node of the rigt subtree
+      // is stored in aux
+      var aux = this.findMinNode(node.right);
+      node.data = aux.data;
+      node.right = this.removeNode(node.right, aux.data);
+      return node;
+      
+  }
 
-    /*
-     * postorder(node) – It performs postorder traversal of a tree starting from a given node.
-     * Algorithm for postorder:
-     * 1. Traverse the left subtree i.e perform inorder on left subtree
-     * 2. Traverse the right subtree i.e perform inorder on right subtree
-     * 3. Visit the root
-     */
-    vm.postorder = function(node) {
-        if (node !== null) {
-            vm.postorder(node.left);
-            vm.postorder(node.right);
-            console.log(node.data);
-        }
-    };
+  /*
+   * Algorithm for inorder:
+   * 1. Traverse inorder on left subtree
+   * 2. Visit the root
+   * 3. Traverse inorder on right subtree
+   *          15
+   *         /  \
+   *        10   25
+   *       / \   / \
+   *      7  13 22  27
+   *     / \    /
+   *    5   9  17
+   *
+   *  Output: 5, 7, 9, 10, 13, 15, 17, 22, 25, 27
+   */
+  inorder(node) {
+      if (node !== null) {
+          this.inorder(node.left);
+          console.log(node.data);
+          this.inorder(node.right);
+      }
+  }
+  
+  /*
+   * Algorithm for preoder:
+   * 1. Visit the root
+   * 2. Traverse preorder on left subtree
+   * 3. Traverse preorder on right subtree
+   *          15
+   *         /  \
+   *        10   25
+   *       / \   / \
+   *      7  13 22  27
+   *     / \    /
+   *    5   9  17
+   *
+   *  Output: 15, 10, 7, 5, 9, 13, 25, 22, 17, 27
+   */
+  preorder(node) {
+      if (node !== null) {
+          console.log(node.data);
+          this.preorder(node.left);
+          this.preorder(node.right);
+      }
+  }
 
-    vm.getRootNode = function() {
-        return vm.root;
-    };
-    vm.search = function(node, data) {
-        if (node === null) {
-            return null;
-        }
-        if (data < node.data) {
-            return vm.search(node.left, data);
-        }
-        if (data > node.data) {
-            return vm.search(node.right, data);
-        }
-        return node;
-    };
-    vm.findMinNode = function(node) {
-        return node.left === null ? node : vm.findMinNode(node.left);
-    };
-};
+  /*
+   * Algorithm for postorder:
+   * 1. Traverse postorder on left subtree
+   * 2. Traverse postorder on right subtree
+   * 3. Visit the root
+   *          15
+   *         /  \
+   *        10   25
+   *       / \   / \
+   *      7  13 22  27
+   *     / \    /
+   *    5   9  17
+   *
+   *  Output: 5, 9, 7, 13, 10, 17, 22, 27, 25, 15
+   */
+  postorder(node) {
+      if (node !== null) {
+          this.postorder(node.left);
+          this.postorder(node.right);
+          console.log(node.data);
+      }
+  }
+
+
+  /*
+   * Algorithm for levelOrder:
+   * 1. Traverse levelOrder on left subtree
+   * 2. Traverse levelOrder on right subtree
+   * 3. Visit the root
+   *          15
+   *         /  \
+   *        10   25
+   *       / \   / \
+   *      7  13 22  27
+   *     / \    /
+   *    5   9  17
+   *
+   *  Output: 15,10,25,7,13,22,27,5,9,17
+   */
+  levelOrder(node) {
+      const queue = []
+      queue.push(node)
+      while (queue.length) {
+        const temp = queue.shift();
+        console.log(temp.data)
+        // Enqueue the Queue
+        if (temp.left) queue.push(temp.left)
+        if (temp.right) queue.push(temp.right)
+      }
+  }
+
+  getRootNode() {
+      return this.root;
+  }
+
+  search(node, data) {
+      if (node === null) {
+          return null;
+      }
+      if (data < node.data) {
+          return this.search(node.left, data);
+      }
+      if (data > node.data) {
+          return this.search(node.right, data);
+      }
+      return node;
+  }
+
+  findMinNode(node) {
+    return node.left === null ? node : this.findMinNode(node.left);
+  }
+
+  isBalanced(root) {
+    if (root == null || (root.right == null && root.left == null)) {
+      return true;
+    }
+
+    const dL = this.findDeep(root.left);
+    const dR = this.findDeep(root.right);
+
+    // An empty tree is height-balanced. A non-empty binary tree T is balanced if:
+    // 1) Left subtree of T is balanced
+    // 2) Right subtree of T is balanced
+    // 3) The difference between heights of left subtree and right subtree is not more than 1.
+    const diff = Math.abs(dL-dR) <= 1;
+    return diff && this.isBalanced(root.left) && this.isBalanced(root.right);
+  };
+
+  findDeep(root){
+    if (root == null) {
+        return 0;
+    }
+    const deepL = 1 + this.findDeep(root.left);
+    const deepR = 1 + this.findDeep(root.right);
+
+    return deepL > deepR ? deepL : deepR;
+  }
+}
 
 // create an object for the BinarySearchTree
 var BST = new BinarySearchTree();
