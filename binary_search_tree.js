@@ -1,75 +1,96 @@
+'use sctrict';
+
 class Node {
   constructor(data) {
     this.data  = data;
     this.left  = null;
     this.right = null;
-    }
-};
+  }
+}
+/**
+ * Implementation Binary Tree with Search, Remove, Traversal, and isBalanced
+ */
+class BinaryTree {
 
-class BinarySearchTree {
   constructor() {
     this.root = null;
   }
 
+  /**
+   * @param  {string|int} data
+   * @return {Boolean}
+   */
   insert(data) {
-      const newNode = new Node(data);
-      if (this.root === null) {
-          this.root = newNode;
-          return;
-      }
-      this.insertNode(this.root, newNode);
-      return;
+    const newNode = new Node(data);
+    if (this.root === null) {
+      this.root = newNode;
+      return true;
+    }
+    this.insertNode(this.root, newNode);
+    return true;
   }
 
+  /**
+   * @param  {Node} node
+   * @param  {Node} newNode
+   * @return {Boolean}
+   */
   insertNode(node, newNode) {
-      // if the data is less than the node
-      // data move left of the tree 
-      if (newNode.data < node.data) {
-          if (node.left === null) {
-              node.left = newNode;
-              return;
-          }
-          this.insertNode(node.left, newNode);
-          return;
-      }
-      if (node.right === null) {
-          node.right = newNode;
-          return;
-      }
-      this.insertNode(node.right, newNode);
-      return;
-  }
-
-  remove(data) {
-      this.root = this.removeNode(this.root, data);
-  }
-
-  removeNode(node, key) {
-      if (node === null || (node.left === null && node.right === null)) {
-          return null;
-      }
-      if (key < node.data) {
-          node.left = this.removeNode(node.left, key);
-          return node;
-      }
-      if (key > node.data) {
-          node.right = this.removeNode(node.right, key);
-          return node;
-      }
+    // if the data is less than the node data move left of the tree 
+    if (newNode.data < node.data) {
       if (node.left === null) {
-          return node.right;
+        node.left = newNode;
+        return true;
       }
-      if (node.right === null) {
-          return node.left;
-      }
-      // Deleting node with two children
-      // minumum node of the rigt subtree
-      // is stored in aux
-      var aux = this.findMinNode(node.right);
-      node.data = aux.data;
-      node.right = this.removeNode(node.right, aux.data);
+      this.insertNode(node.left, newNode);
+      return true;
+    }
+    if (node.right === null) {
+      node.right = newNode;
+      return true;
+    }
+    this.insertNode(node.right, newNode);
+    return true;
+  }
+
+  /**
+   * @param  {string|int} data
+   * @return {Node|null}
+   */
+  remove(data) {
+    return this.root = this.removeNode(this.root, data);
+  }
+
+  /**
+   * @param  {Node} node
+   * @param  {string|int} key
+   * @return {Node|null}
+   */
+  removeNode(node, key) {
+    if (node === null || (node.left === null && node.right === null)) {
+      return null;
+    }
+    if (key < node.data) {
+      node.left = this.removeNode(node.left, key);
       return node;
-      
+    }
+    if (key > node.data) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    }
+    if (node.left === null) {
+      return node.right;
+    }
+    if (node.right === null) {
+      return node.left;
+    }
+    // Deleting node with two children
+    // minumum node of the rigt subtree
+    // is stored in aux
+    var aux    = this.findMinNode(node.right);
+    node.data  = aux.data;
+    node.right = this.removeNode(node.right, aux.data);
+    return node;
   }
 
   /*
@@ -77,45 +98,51 @@ class BinarySearchTree {
    * 1. Traverse inorder on left subtree
    * 2. Visit the root
    * 3. Traverse inorder on right subtree
-   *          15
-   *         /  \
-   *        10   25
-   *       / \   / \
-   *      7  13 22  27
+   *        15
+   *       /  \
+   *      10   25
+   *     / \   / \
+   *    7  13 22  27
    *     / \    /
    *    5   9  17
    *
    *  Output: 5, 7, 9, 10, 13, 15, 17, 22, 25, 27
+   *
+   * @param  {Node} node [description]
+   * @return print Node data
    */
   inorder(node) {
-      if (node !== null) {
-          this.inorder(node.left);
-          console.log(node.data);
-          this.inorder(node.right);
-      }
+    if (node !== null) {
+      this.inorder(node.left);
+      console.log(node.data);
+      this.inorder(node.right);
+    }
   }
-  
+
   /*
    * Algorithm for preoder:
    * 1. Visit the root
    * 2. Traverse preorder on left subtree
    * 3. Traverse preorder on right subtree
-   *          15
-   *         /  \
-   *        10   25
-   *       / \   / \
-   *      7  13 22  27
+   *        15
+   *       /  \
+   *      10   25
+   *     / \   / \
+   *    7  13 22  27
    *     / \    /
    *    5   9  17
    *
    *  Output: 15, 10, 7, 5, 9, 13, 25, 22, 17, 27
+   *
+   * @param  {Node} node [description]
+   * @return print Node data
    */
   preorder(node) {
-      if (node !== null) {
-          console.log(node.data);
-          this.preorder(node.left);
-          this.preorder(node.right);
-      }
+    if (node !== null) {
+      console.log(node.data);
+      this.preorder(node.left);
+      this.preorder(node.right);
+    }
   }
 
   /*
@@ -123,75 +150,100 @@ class BinarySearchTree {
    * 1. Traverse postorder on left subtree
    * 2. Traverse postorder on right subtree
    * 3. Visit the root
-   *          15
-   *         /  \
-   *        10   25
-   *       / \   / \
-   *      7  13 22  27
+   *        15
+   *       /  \
+   *      10   25
+   *     / \   / \
+   *    7  13 22  27
    *     / \    /
    *    5   9  17
    *
    *  Output: 5, 9, 7, 13, 10, 17, 22, 27, 25, 15
+   *
+   * @param  {Node} node [description]
+   * @return print Node data
    */
   postorder(node) {
-      if (node !== null) {
-          this.postorder(node.left);
-          this.postorder(node.right);
-          console.log(node.data);
-      }
+    if (node !== null) {
+      this.postorder(node.left);
+      this.postorder(node.right);
+      console.log(node.data);
+    }
   }
-
 
   /*
    * Algorithm for levelOrder:
    * 1. Traverse levelOrder on left subtree
    * 2. Traverse levelOrder on right subtree
    * 3. Visit the root
-   *          15
-   *         /  \
-   *        10   25
-   *       / \   / \
-   *      7  13 22  27
+   *        15
+   *       /  \
+   *      10   25
+   *     / \   / \
+   *    7  13 22  27
    *     / \    /
    *    5   9  17
    *
    *  Output: 15,10,25,7,13,22,27,5,9,17
+   *
+   * @param  {Node} node [description]
+   * @return print Node data
    */
   levelOrder(node) {
-      const queue = []
-      queue.push(node)
-      while (queue.length) {
-        const temp = queue.shift();
-        console.log(temp.data)
-        // Enqueue the Queue
-        if (temp.left) queue.push(temp.left)
-        if (temp.right) queue.push(temp.right)
+    const queue = [];
+    queue.push(node);
+    while (queue.length) {
+      const temp = queue.shift();
+      console.log(temp.data);
+      // Enqueue the Queue
+      if (temp.left) {
+        queue.push(temp.left);
       }
+      if (temp.right) {
+        queue.push(temp.right);
+      }
+    }
   }
 
+  /**
+   * @return {Node|null}
+   */
   getRootNode() {
-      return this.root;
+    return this.root;
   }
 
+  /**
+   * @param  {Node} node
+   * @param  {string|int} data
+   * @return {Node|null}
+   */
   search(node, data) {
-      if (node === null) {
-          return null;
-      }
-      if (data < node.data) {
-          return this.search(node.left, data);
-      }
-      if (data > node.data) {
-          return this.search(node.right, data);
-      }
-      return node;
+    if (node === null) {
+      return null;
+    }
+    if (data < node.data) {
+      return this.search(node.left, data);
+    }
+    if (data > node.data) {
+      return this.search(node.right, data);
+    }
+    return node;
   }
 
+  /**
+   * @param  {Node}
+   * @return {Node}
+   */
   findMinNode(node) {
     return node.left === null ? node : this.findMinNode(node.left);
   }
 
+  /**
+   * @param  {Node}  root
+   * @return {Boolean}
+   */
   isBalanced(root) {
-    if (root == null || (root.right == null && root.left == null)) {
+    if (root === null || (root.right === null && root.left === null)) {
       return true;
     }
 
@@ -206,9 +258,13 @@ class BinarySearchTree {
     return diff && this.isBalanced(root.left) && this.isBalanced(root.right);
   };
 
+  /**
+   * @param  {Node} root
+   * @return {int}
+   */
   findDeep(root){
-    if (root == null) {
-        return 0;
+    if (root === null) {
+      return 0;
     }
     const deepL = 1 + this.findDeep(root.left);
     const deepR = 1 + this.findDeep(root.right);
@@ -217,85 +273,115 @@ class BinarySearchTree {
   }
 }
 
-// create an object for the BinarySearchTree
-var BST = new BinarySearchTree();
- 
-// Inserting nodes to the BinarySearchTree
-BST.insert(15);
-BST.insert(25);
-BST.insert(10);
-BST.insert(7);
-BST.insert(22);
-BST.insert(17);
-BST.insert(13);
-BST.insert(5);
-BST.insert(9);
-BST.insert(27);
-                         
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      7  13 22  27
-//     / \    /
-//    5   9  17 
- 
-var root = BST.getRootNode();
-             
-// prints 5 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with no children 
-BST.remove(5);
-             
-             
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      7  13 22  27
-//       \    /
-//        9  17 
-             
-                         
-var root = BST.getRootNode();
-             
-// prints 7 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with one children 
-BST.remove(7);
-             
-//          15
-//         /  \
-//        10   25
-//       / \   / \
-//      9  13 22  27
-//            /
-//           17 
-             
-             
-var root = BST.getRootNode();
- 
-// prints 9 10 13 15 17 22 25 27
-BST.inorder(root);
-             
-// Removing node with two children 
-BST.remove(15);
-     
-//          17
-//         /  \
-//        10   25
-//       / \   / \
-//      9  13 22  27
- 
-var root = BST.getRootNode();
-console.log("inorder traversal");
- 
-// prints 9 10 13 17 22 25 27
-BST.inorder(root);
-             
-console.log("postorder traversal");
-BST.postorder(root);
-console.log("preorder traversal");
-BST.preorder(root);
+(() => {
+  console.log('Testing started: binary tree traversal');
+  const it = ((description, func) => {
+    console.log(' => ' + description + ' => ' +  func());
+  });
+
+  it('#1 Test root node', () => {
+    const input  = new BinaryTree();
+    const expect = 'Root value';
+    input.insert(expect);
+    const result = input.getRootNode().data;
+    if (expect === result) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + result;
+  });
+
+  it('#2 Test remove node', () => {
+    const input  = new BinaryTree();
+    const expect = 'Child';
+    input.insert('Parent'); //root
+    input.insert(expect);
+    input.insert('Child Child');
+    input.remove(input.getRootNode().data);
+    const result = input.getRootNode().data;
+    if (expect === result) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + result;
+  });
+
+  it('#3 Test search node', () => {
+    //        15
+    //       /  \
+    //      10   25
+    //     / \   / \
+    //    7  13 22  27
+    //     / \    /
+    //    5   9  17
+  const input = new BinaryTree();
+    input.insert(15);
+    input.insert(25);
+    input.insert(10);
+    input.insert(7);
+    input.insert(22);
+    input.insert(17);
+    input.insert(13);
+    input.insert(5);
+    input.insert(9);
+    input.insert(27);
+    const expect = 27;
+    const result = input.search(input.getRootNode(), expect).data;
+    if (expect === result) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + result;
+  });
+
+  it('#4 Test search node does not exist', () => {
+    //        15
+    //       /  \
+    //      10   25
+    //     / \   / \
+    //    7  13 22  27
+    //     / \    /
+    //    5   9  17
+  const input = new BinaryTree();
+    input.insert(15);
+    input.insert(25);
+    input.insert(10);
+    input.insert(7);
+    input.insert(22);
+    input.insert(17);
+    input.insert(13);
+    input.insert(5);
+    input.insert(9);
+    input.insert(27);
+    const expect = null;
+    const result = input.search(input.getRootNode(), 999);
+    if (expect === result) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + result;
+  });
+
+  it('#5 Test balanced tree', () => {
+    //        15
+    //       /  \
+    //      10   25
+    //     / \   / \
+    //    7  13 22  27
+    //     / \    /
+    //    5   9  17
+  const input = new BinaryTree();
+    input.insert(15);
+    input.insert(25);
+    input.insert(10);
+    input.insert(7);
+    input.insert(22);
+    input.insert(17);
+    input.insert(13);
+    input.insert(5);
+    input.insert(9);
+    input.insert(27);
+    const expect = true;
+    const result = input.isBalanced(input.getRootNode());
+    if (expect === result) {
+      return 'PASSED';
+    }
+    return 'FAILED; EXPECT:' + expect + ' !== ' + result;
+  });
+})();
