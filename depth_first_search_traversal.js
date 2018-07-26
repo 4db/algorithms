@@ -1,22 +1,19 @@
-
 /*
- * The non-recursive implementation is similar to breadth-first search but differs from it in two ways:
- * it uses a stack instead of a queue, and
- * it delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before adding the vertex.
- * Performs a depth-first search on a graph represent an object of array edges(Adjacency matrix)
+ * O(|V| + |E|) 
+ *
+ * @param {object} graph - Graph(Adjacency matrix).
  * @param {string} root - The root|source vertex.
- * @param {object} tree - Graph, represented as object.
- * @returns {object} Object of parents: {'A' : 'None', 'B' : 'A', 'C' : 'A'}
+ * @returns {object} {'A' : 'None', 'B' : 'A', 'C' : 'A'}
  */
-function depth_first_search_traversal(root, tree) {
+function depth_first_search_traversal(graph, root) {
     let stack = [];
     let visited  = {};
     visited[root] = 'None';
     stack.push(root);
     while(stack.length) {
         const current = stack.pop();
-        for (let i = 0; i < tree[current].length; i++) {
-            const node = tree[current][i];
+        for (let i = 0; i < graph[current].length; i++) {
+            const node = graph[current][i];
             stack.push(node);
             if (!visited[node]) {
                 visited[node] = current;
@@ -55,7 +52,7 @@ function depth_first_search_traversal(root, tree) {
   it('#1 Test root node', () => {
     const input    = 'A';
     const expect   = 'None';
-    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    const response = depth_first_search_traversal(adjacencyMatrix, input);
     if (expect === response[input]) {
       return 'PASSED';
     }
@@ -65,7 +62,7 @@ function depth_first_search_traversal(root, tree) {
   it('#2 Test parent of leaf J', () => {
     const input    = 'A';
     const expect   = 'F';
-    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    const response = depth_first_search_traversal(adjacencyMatrix, input);
     if (expect === response['J']) {
       return 'PASSED';
     }
@@ -75,7 +72,7 @@ function depth_first_search_traversal(root, tree) {
   it('#3 Test parent of leaf G', () => {
     const input    = 'A';
     const expect   = 'D';
-    const response = depth_first_search_traversal(input, adjacencyMatrix);
+    const response = depth_first_search_traversal(adjacencyMatrix, input);
     if (expect === response['G']) {
       return 'PASSED';
     }
