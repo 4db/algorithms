@@ -1,5 +1,6 @@
 /*
  * O(|V| + |E|) 
+ * Using: Topological sorting, Maze, Explore
  *
  * @param {object} graph - Graph(Adjacency matrix).
  * @param {string} root - The root|source vertex.
