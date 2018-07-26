@@ -7,6 +7,7 @@ class Node {
     this.right = null;
   }
 }
+
 /**
  * Implementation Binary Tree with Search, Remove, Traversal, and isBalanced
  */
