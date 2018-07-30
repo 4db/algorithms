@@ -1,4 +1,5 @@
 /*
+ * O(|V| + |E|) 
  * The recursive implementation breadth-first search
  * Performs a recursion depth-first search on a graph represent an object of array edges
  * @param {string} source - The source vertex.
@@ -6,7 +7,7 @@
  * @param {string} search - The search node
  * @returns {object} Object of parents: {'A' : 'None', 'B' : 'A', 'C' : 'A'}
  */
-function depth_first_search(root, tree, search) {
+function depthFirstSearch(root, tree, search) {
   let visited   = {};
   visited[root] = 'None';
 
@@ -59,7 +60,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'A';
     const expect   = true;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
@@ -70,7 +71,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'X';
     const expect   = false;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
@@ -81,7 +82,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'G';
     const expect   = true;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
