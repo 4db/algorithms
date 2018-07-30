@@ -6,7 +6,7 @@
  * @param {string} root - The root|source vertex.
  * @returns {object} {'A' : 'None', 'B' : 'A', 'C' : 'A'}
  */
-function depth_first_search_traversal(graph, root) {
+function depthFirstSearchTraversal(graph, root) {
     let stack = [];
     let visited  = {};
     visited[root] = 'None';
@@ -53,7 +53,7 @@ function depth_first_search_traversal(graph, root) {
   it('#1 Test root node', () => {
     const input    = 'A';
     const expect   = 'None';
-    const response = depth_first_search_traversal(adjacencyMatrix, input);
+    const response = depthFirstSearchTraversal(adjacencyMatrix, input);
     if (expect === response[input]) {
       return 'PASSED';
     }
@@ -63,7 +63,7 @@ function depth_first_search_traversal(graph, root) {
   it('#2 Test parent of leaf J', () => {
     const input    = 'A';
     const expect   = 'F';
-    const response = depth_first_search_traversal(adjacencyMatrix, input);
+    const response = depthFirstSearchTraversal(adjacencyMatrix, input);
     if (expect === response['J']) {
       return 'PASSED';
     }
@@ -73,7 +73,7 @@ function depth_first_search_traversal(graph, root) {
   it('#3 Test parent of leaf G', () => {
     const input    = 'A';
     const expect   = 'D';
-    const response = depth_first_search_traversal(adjacencyMatrix, input);
+    const response = depthFirstSearchTraversal(adjacencyMatrix, input);
     if (expect === response['G']) {
       return 'PASSED';
     }
