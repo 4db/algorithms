@@ -1,4 +1,5 @@
 /*
+ * O(|V| + |E|) 
  * The non-recursive implementation is similar to breadth-first search but differs from it in two ways:
  * it uses a stack instead of a queue, and
  * it delays checking whether a vertex has been discovered until the vertex is popped from the stack rather than making this check before adding the vertex.
@@ -8,7 +9,7 @@
  * @param {string} search - The search node
  * @returns {bolean}
  */
-function depth_first_search(root, tree, search) {
+function depthFirstSearch(root, tree, search) {
     let stack = [];
     let visited  = {};
     visited[root] = 'None';
@@ -59,7 +60,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'A';
     const expect   = true;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
@@ -70,7 +71,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'X';
     const expect   = false;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
@@ -81,7 +82,7 @@ function depth_first_search(root, tree, search) {
     const root     = 'A';
     const input    = 'G';
     const expect   = true;
-    const response = depth_first_search(root, adjacencyMatrix, input);
+    const response = depthFirstSearch(root, adjacencyMatrix, input);
     if (expect === response) {
       return 'PASSED';
     }
