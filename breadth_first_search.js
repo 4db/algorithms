@@ -5,14 +5,14 @@
  * @param {object} tree - Graph, represented as object.
  * @returns {object|false} Object of distances and parents with shortes path: {A :{distance: 0, parent: "None"}} or false
  */
-function breadth_first_search(root, graph, search) {
+function breadthFirstSearch(root, graph, search) {
     const distance = {[root] : {distance : 0, parent: 'None'}};
     const queue = [root];
     while(queue.length) {
         const current = queue.shift();
-		if (current === search) {
-			return distance;
-		}
+        if (current === search) {
+            return distance;
+        }
         for (let i = 0; i < graph[current].length; i++) {
             const node = graph[current][i];
             if (!distance[node]) {
@@ -52,9 +52,9 @@ function breadth_first_search(root, graph, search) {
 
   it('#1 Test root node', () => {
     const input    = 'A';
-	const search   = 'A';
+    const search   = 'A';
     const expect   = {distance : 0, parent: 'None'};
-    const response = breadth_first_search(input, adjacencyMatrix, search);
+    const response = breadthFirstSearch(input, adjacencyMatrix, search);
     if (expect.parent === response[input].parent) {
       return 'PASSED';
     }
@@ -63,9 +63,9 @@ function breadth_first_search(root, graph, search) {
 
   it('#2 Test parent of leaf J', () => {
     const input    = 'A';
-	const search   = 'J';
+    const search   = 'J';
     const expect   = {distance: 3, parent: "F"};
-    const response = breadth_first_search(input, adjacencyMatrix, search);
+    const response = breadthFirstSearch(input, adjacencyMatrix, search);
     if (expect.parent === response['J'].parent) {
       return 'PASSED';
     }
@@ -74,9 +74,9 @@ function breadth_first_search(root, graph, search) {
 
   it('#3 Test parent of leaf M - not exist', () => {
     const input    = 'A';
-	const search   = 'M';
+    const search   = 'M';
     const expect   = false;
-    const response = breadth_first_search(input, adjacencyMatrix, search);
+    const response = breadthFirstSearch(input, adjacencyMatrix, search);
     if (expect === response) {
       return 'PASSED';
     }
