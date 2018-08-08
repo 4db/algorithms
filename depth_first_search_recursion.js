@@ -28,7 +28,7 @@ function depthFirstSearch(root, tree, search) {
   };
   // Search from start vertex root
   return recursionDFSvisit(root, tree, search);
-};
+}
 
 (() => {
   console.log('Testing started: depth-first search');

@@ -16,6 +16,6 @@ function countingSort(arr, min, max) {
         }
     }
  return arr;
-};
+}
 console.log(countingSort([3, 0, 2, 5, 4, 1], 0, 5));
 console.log(countingSort([1,3,3,44,5,5,6,6,7,7,4,2,3,4,0,5,1,33,43], 0, 43));

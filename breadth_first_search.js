@@ -22,7 +22,7 @@ function breadthFirstSearch(root, graph, search) {
         }
     }
     return false;
-};
+}
 
 (() => {
   console.log('Testing started: breadth first search traversal');

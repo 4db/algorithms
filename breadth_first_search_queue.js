@@ -13,12 +13,12 @@ class Queue {
 
     dequeue() {
         return this.items.shift();
-    };
+    }
 
     isEmpty() {
         return this.items.length === 0;
-    };
-};
+    }
+}
 
 /*
  * The non-recursive implementation an breadth-first search traversal (queue - Array)
@@ -43,7 +43,7 @@ function breadth_first_search_traversal(root, graph) {
         }
     }
     return distance;
-};
+}
 
 (() => {
   console.log('Testing started: breadth first search traversal');

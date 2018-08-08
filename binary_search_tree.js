@@ -257,7 +257,7 @@ class BinaryTree {
     // 3) The difference between heights of left subtree and right subtree is not more than 1.
     const diff = Math.abs(dL-dR) <= 1;
     return diff && this.isBalanced(root.left) && this.isBalanced(root.right);
-  };
+  }
 
   /**
    * @param  {Node} root
