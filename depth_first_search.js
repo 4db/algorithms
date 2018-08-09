@@ -67,7 +67,7 @@ function depthFirstSearch(root, tree, search) {
     return 'FAILED; EXPECT:' + expect + ' !== ' + response;
   });
 
-  it('#1 Search not exist node', () => {
+  it('#2 Search not exist node', () => {
     const root     = 'A';
     const input    = 'X';
     const expect   = false;
@@ -78,7 +78,7 @@ function depthFirstSearch(root, tree, search) {
     return 'FAILED; EXPECT:' + expect + ' !== ' + response;
   });
 
-  it('#1 Search leaf node', () => {
+  it('#3 Search leaf node', () => {
     const root     = 'A';
     const input    = 'G';
     const expect   = true;
