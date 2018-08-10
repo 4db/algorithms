@@ -201,3 +201,4 @@
  - Lecture 22: Dynamic Programming IV: Guitar Fingering, Tetris, Super Mario Bros.
  - Lecture 23: Computational Complexity
  - Lecture 24: Topics in Algorithms Research
+        - [Greedy Algorithm](https://github.com/aldb/js_algorithms/blob/master/greedy_algorithm.js)
