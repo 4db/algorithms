@@ -18,25 +18,21 @@ function longestWord(words, letters) {
     }
     letterPositions[letter].push(i);
   }
-  
+
   // Sorted words by length O(N)
   words = words.sort((a,b) => {
-    return a < b;
+    return a.length < b.length;
   });
   
   // O(N words * L averange length);
-  
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
-    const check = letterPositions;
     
     for (let k = 0; k < word.length; k++) {
       const letter = word[k];
-      if (!check[letter] || check[letter].length === 0) {
+      if (!letterPositions[letter]) {
         break;
       }
-      
-      check[letter].shift();
       if (k === word.length - 1) {
         return word;
       }
@@ -49,5 +45,4 @@ function it(desc, input, expect) {
 	console.log(`Starting testing: ${desc}`);
 	console.log('     => ' + input === expect ? 'PASSED' : 'FAILED');
 }
-console.log(longestWord(['apple', 'aa', 'ppp', 'blabla'], 'appletest'));
 it('#1 Find apple', longestWord(['apple', 'aa', 'ppp', 'blabla'], 'applee'), 'apple');
