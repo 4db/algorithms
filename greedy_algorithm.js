@@ -56,6 +56,13 @@ function getLetterPositions(letters) {
   return letterPositions;
 }
 
+/*
+ * Test function with console.log response
+ * @param desc {string}
+ * @param input {string}
+ * @param expect {string}
+ * return {print text}
+ */
 function it(desc, input, expect) {
 	console.log(`Starting testing: ${desc}`);
     if (input === expect) {
