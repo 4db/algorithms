@@ -21,7 +21,7 @@ function longestWord(words, letters) {
   
   // Sorted words by length O(N)
   words = words.sort((a,b) => {
-    return a.length < b length;
+    return a < b;
   });
   
   // O(N words * L averange length);
