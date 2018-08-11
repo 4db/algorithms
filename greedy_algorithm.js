@@ -1,9 +1,9 @@
 /**
  * Given a string {letters} and a set of {words}.
  * Find the longest word in {words} that is subsequence of {letters}
- * 
+ *
  * O(N + L * log N)
- * 
+ *
  * @param words {array}
  * @param letters {string}
  * @return {string | -1}
@@ -44,3 +44,10 @@ function longestWord(words, letters) {
   }
   return -1;
 }
+
+function it(desc, input, expect) {
+	console.log(`Starting testing: ${desc}`);
+	console.log('     => ' + input === expect ? 'PASSED' : 'FAILED');
+}
+console.log(longestWord(['apple', 'aa', 'ppp', 'blabla'], 'appletest'));
+it('#1 Find apple', longestWord(['apple', 'aa', 'ppp', 'blabla'], 'applee'), 'apple');
