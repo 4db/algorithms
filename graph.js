@@ -1,5 +1,7 @@
 /*
- * Uunweighted, undirected graph
+ * Uunweighted, undirected graph function
+ * Using array for storage verices and edges
+ *
  * vertices - array
  * edges - array
  */
