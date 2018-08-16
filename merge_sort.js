@@ -2,12 +2,12 @@ function mergeSort(arr) {
     if (arr.length < 2) {
         return arr;
     }
-    var mid = parseInt(arr.length / 2),
+    const mid = parseInt(arr.length / 2),
     left = arr.slice(0, mid),
     right = arr.slice(mid, arr.length);
 
     return (function merge(left, right) {
-        var res = [];
+        const res = [];
         while(left.length && right.length) {
             res.push(left[0] < right[0] ? left.shift() : right.shift());
         }
@@ -24,9 +24,11 @@ function mergeSort(arr) {
     })(mergeSort(left), mergeSort(right));
 }
 
-[
-    '123216443658743695943758432675983768943',
-    '000000000111111100000000000000000011111',
-    'dfasfjasdfghjsadgfagjshd'
-].map(str => console.log(mergeSort(str.split(''))) );
+function it(desc, input, expect) {
+	console.log(desc);
+	console.log(input == expect ? 'PASSED' : 'FAIL');
+}
 
+it ('should sort integer', mergeSort([5,4,3,2,1]).join(''), [1,2,3,4,5].join(''));
+it ('should sort negative integer and 0', mergeSort([1,2,3,-1,0]).join(''), [-1,0,1,2,3].join(''));
+it ('should sort negative chars', mergeSort(['c','b','a']).join(''), ['a','b','c'].join(''));
