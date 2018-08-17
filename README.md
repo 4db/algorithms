@@ -130,6 +130,11 @@
       <th></th>
     </tr>
     <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Tree_traversal">Tree traversal</a></td>
+      <td colspan="4"><code >O(N + N-1)</td>
+      <td><code>O(N)</code></td>
+    </tr>
+    <tr>
       <td><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm">Dijkstra</a></td>
       <td colspan="4"><code >O(E+VlogV)</td>
       <td><code>O(V^2)</code></td>
