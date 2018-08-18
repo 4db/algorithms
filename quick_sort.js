@@ -11,8 +11,8 @@ function swap(arr, key, secondKey) {
 
 /*
  * @param {array} arr
- * @param {array} left
- * @param {array} right
+ * @param {integer} left
+ * @param {integer} right
  */
 function getPivot(arr, left, right) {
     var pivot = arr[Math.floor((left + right) / 2)];
@@ -35,7 +35,11 @@ function getPivot(arr, left, right) {
     return left;
 }
 
-
+/*
+ * @param {array} arr
+ * @param {array} left
+ * @param {array} right
+ */
 function quickSort(arr, left, right) {
 
     var index;
@@ -56,6 +60,12 @@ function quickSort(arr, left, right) {
 
     return arr;
 }
+
+/*
+ * @param {string} desc
+ * @param {void} input
+ * @param {void} expect
+ */
 function it(desc, input, expect) {
 	console.log(desc);
 	console.log(input == expect ? 'PASSED' : 'FAIL');
