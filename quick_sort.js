@@ -4,7 +4,7 @@
  * @param {string|int} secondKey
  */
 function swap(arr, key, secondKey) {
-    var temp = arr[key];
+    let temp = arr[key];
     arr[key] = arr[secondKey];
     arr[secondKey] = temp;
 }
@@ -15,7 +15,7 @@ function swap(arr, key, secondKey) {
  * @param {integer} right
  */
 function getPivot(arr, left, right) {
-    var pivot = arr[Math.floor((left + right) / 2)];
+    let pivot = arr[Math.floor((left + right) / 2)];
 
     while(left <= right) {
         while(arr[left] < pivot) {
@@ -41,8 +41,7 @@ function getPivot(arr, left, right) {
  * @param {array} right
  */
 function quickSort(arr, left, right) {
-
-    var index;
+    let index;
     if (arr.length <= 1) {
         return arr;
     }
