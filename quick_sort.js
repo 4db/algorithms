@@ -66,8 +66,8 @@ function getPivot(arr, left, right) {
  * @param {void} expect
  */
 function it(desc, input, expect) {
-	console.log(desc);
-	console.log(input == expect ? 'PASSED' : 'FAIL');
+    console.log(desc);
+    console.log(input == expect ? '    PASSED' : '    FAIL');
 }
 
 it ('should sort integer', 
