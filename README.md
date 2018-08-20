@@ -1,6 +1,4 @@
-#### Javascript implementation MIT Course Number 6.006
-
-[MIT Course Number 6.006](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/)
+#### Javascript Algorithm implementation
 
 <table>
     <tbody>
@@ -157,6 +155,8 @@
 </tbody>
 </table>
 
+
+[MIT Course Number 6.006](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/)
 
  - Lecture 1: Algorithmic Thinking, Peak Finding
  - Lecture 2: Models of Computation, Document Distance
