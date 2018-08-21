@@ -31,11 +31,15 @@ function dijkstra(graph, source) {
     return distance;
 }
 
-(() => {
-  console.log('Testing started: Dijkstra');
-  const it = ((description, func) => {
+/*
+ *@param {string} description
+ *@param {function} func
+ *@return {print result}
+ */
+function it = ((description, func) => {
     console.log(' => ' + description + ' => ' +  func());
-  });
+});
+
 //              A
 //            /   \
 //          1      1
@@ -45,16 +49,16 @@ function dijkstra(graph, source) {
 //    1       1        10
 //   /         \         \
 //  D          E -- 1 -- F
-    const adjacencyMatrix = {
-      'A' : {'B' : 1, 'C' : 1},
-      'B' : {'D' : 1, 'E' : 1},
-      'C' : {'F' : 10},
-      'D' : {},
-      'E' : {'F' : 1},
-      'F' : {},
-    };
+const adjacencyMatrix = {
+  'A' : {'B' : 1, 'C' : 1},
+  'B' : {'D' : 1, 'E' : 1},
+  'C' : {'F' : 10},
+  'D' : {},
+  'E' : {'F' : 1},
+  'F' : {},
+};
 
-  it('#1 Test source node', () => {
+it('should find a source node', () => {
     const input    = 'A';
     const expect   = 'None';
     const response = dijkstra(adjacencyMatrix, input);
@@ -63,9 +67,9 @@ function dijkstra(graph, source) {
       return 'PASSED';
     }
     return 'FAILED; EXPECT:' + expect + ' !== ' + response;
-  });
+});
 
-  it('#2 Test shortest path to F ', () => {
+it('should find a shortest path to F ', () => {
     const input    = 'A';
     const expect   = 3;
     const response = dijkstra(adjacencyMatrix, input);
@@ -73,9 +77,9 @@ function dijkstra(graph, source) {
       return 'PASSED';
     }
     return 'FAILED; EXPECT:' + expect + ' !== ' + response;
-  });
+});
 
-  it('#3 Test shortest path does not existing', () => {
+it('should not find a shortest path of G', () => {
     const input    = 'A';
     const expect   = undefined;
     const response = dijkstra(adjacencyMatrix, input);
@@ -83,5 +87,4 @@ function dijkstra(graph, source) {
       return 'PASSED';
     }
     return 'FAILED; EXPECT:' + expect + ' !== ' + response;
-  });
-})();
+});
