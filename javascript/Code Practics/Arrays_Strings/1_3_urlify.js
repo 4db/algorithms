@@ -13,21 +13,21 @@
  * @return string
  */
 function URLify(str) {
-    return str.trim().split(/\s+/).join('%20');
+  return str.trim().split(/\s+/).join('%20');
 }
 
 (() => {
-    const it = ((description, input, expect) => {
-        console.log(
-            description,
-            URLify(input) === expect 
-          ? 
-          'PASS'
-          : 'FAIL'
-        );
-    });
-    it('Test URLify with on the end', 'Mr John Smith   ', 'Mr%20John%20Smith');
-    it('Test URLify with on the front', '   Mr John Smith', 'Mr%20John%20Smith');
-    it('Test URLify with spaces', '   Mr    John      Smith   ', 'Mr%20John%20Smith');
-    it('Test URLify without spaces', 'MrJohnSmith', 'MrJohnSmith');
+  const it = ((description, input, expect) => {
+    console.log(
+      description,
+        URLify(input) === expect 
+        ? 
+        'PASS'
+        : 'FAIL'
+    );
+  });
+  it('Test URLify with on the end', 'Mr John Smith   ', 'Mr%20John%20Smith');
+  it('Test URLify with on the front', '   Mr John Smith', 'Mr%20John%20Smith');
+  it('Test URLify with spaces', '   Mr    John      Smith   ', 'Mr%20John%20Smith');
+  it('Test URLify without spaces', 'MrJohnSmith', 'MrJohnSmith');
 })();
