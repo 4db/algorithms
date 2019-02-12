@@ -7,7 +7,7 @@
  * For Unicode Characters set, ~1M unique characters.
  *
  * Time Complexity O(N log(N))
- * Space Complexity O(N)
+ * Space Complexity  TradeOff:O(log(N)) for Quick Sort and O(N) for Merge Sort
  *
  * @param string str
  * @return boolean
@@ -26,7 +26,7 @@ function isUnique(str) {
 /*
  * For ASCII characters set, only 128 unique characters
  *
- * Time Complexity O(N log(N))
+ * Time Complexity O(128 -> 1)
  * Space Complexity O(N)
  *
  * @param string str
