@@ -32,17 +32,18 @@ function isPermutationOfPalindrome(str) {
 }
 
 (() => {
+  const test = 'Test isPermutationOfPalindrome ';
   const it = ((description, input, expect) => {
     console.log(
-      description,
+      test + description + ': ',
       isPermutationOfPalindrome(input) === expect ? 'PASS' : 'FAIL'
     );
   });
-  it('Test permutation of palindrome', 'tactcoapapa', true);
-  it('Test not permutation of palindrome', 'qwe rty ui', false);
-  it('Test 2x permutation of palindrome', 'aa', true);
-  it('Test 2x not permutation of palindrome', 'ab', true);
-  it('Test 3x permutation of palindrome', 'aba', true);
-  it('Test 4x not permutation of palindrome', 'abcd', false);
-  it('Test 5x permutation of palindrome', 'civic', true);
+  it('should return true for permutation of palindrome', 'tactcoapapa', true);
+  it('should return false for not permutation of palindrome', 'qwe rty ui', false);
+  it('should return true for short string(2x) and permutation of palindrome', 'aa', true);
+  it('should return false for short string(2x) and not permutation of palindrome', 'ab', true);
+  it('should return true for short string(3x) and permutation of palindrome', 'aba', true);
+  it('should return false for short string(4x) not permutation of palindrome', 'abcd', false);
+  it('should return true for odd string and permutation of palindrome', 'civic', true);
 })();
