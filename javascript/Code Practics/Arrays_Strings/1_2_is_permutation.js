@@ -38,17 +38,18 @@ function isPermutationTradeOff(str1, str2) {
 }
 
 (() => {
+  const test = 'Test isPermutation ';
   const it = ((description, str1, str2, expect) => {
     console.log(
-      description,
+      test + description + ': ',
         isPermutation(str1, str2) === expect 
         ? 
-        'isPermutation PASS'
-        : 'isPermutation FAIL'
+        'PASS'
+        : 'FAIL'
     );
   });
-  it('Test permutations combination', 'god', 'dog', true);
-  it('Test not permutations combination', 'test', 'asdf', false);
-  it('Test permutations combination with upper Chars', 'CiViC', 'civic', true);
-  it('Test permutations combination with upper Chars', 'asdfAsd', 'FAdfAsd', false);
+  it('should return true for permutations combination', 'god', 'dog', true);
+  it('should return false for not permutations combination', 'test', 'asdf', false);
+  it('should return true for permutations combination with upper Chars', 'CiViC', 'civic', true);
+  it('should return false for not permutations combination with upper Chars', 'asdfAsd', 'FAdfAsd', false);
 })();
