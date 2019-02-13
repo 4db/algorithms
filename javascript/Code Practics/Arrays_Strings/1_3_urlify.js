@@ -17,17 +17,18 @@ function URLify(str) {
 }
 
 (() => {
+  const test = 'Test URLify ';
   const it = ((description, input, expect) => {
     console.log(
-      description,
+      test + description + ': ',
         URLify(input) === expect 
         ? 
         'PASS'
         : 'FAIL'
     );
   });
-  it('Test URLify with on the end', 'Mr John Smith   ', 'Mr%20John%20Smith');
-  it('Test URLify with on the front', '   Mr John Smith', 'Mr%20John%20Smith');
-  it('Test URLify with spaces', '   Mr    John      Smith   ', 'Mr%20John%20Smith');
-  it('Test URLify without spaces', 'MrJohnSmith', 'MrJohnSmith');
+  it('should replace spaces and remove characters on the end of string', 'Mr John Smith   ', 'Mr%20John%20Smith');
+  it('should replace spaces and remove characters on the start of string', '   Mr John Smith', 'Mr%20John%20Smith');
+  it('should replace spaces and remove characters on the middle', '   Mr    John      Smith   ', 'Mr%20John%20Smith');
+  it('should return string without changes', 'MrJohnSmith', 'MrJohnSmith');
 })();
