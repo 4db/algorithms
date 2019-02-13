@@ -44,18 +44,21 @@ function isUniqueTradeOff(str) {
 }
 
 (() => {
+  const test = 'Test';
   const it = ((description, input, expect) => {
-    console.log(description, isUnique(input) === expect 
+    console.log(test + ' isUnique ' + description + ':',
+      isUnique(input) === expect 
       ? 
-      'isUnique PASS'
-      : 'isUnique FAIL');
-    console.log(description, isUniqueTradeOff(input) === expect 
+      ' PASS'
+      : ' FAIL');
+    console.log(test + ' isUniqueTradeOff ' + description + ':',
+      isUniqueTradeOff(input) === expect 
       ? 
-      'isUniqueTradeOff PASS'
-      : 'isUniqueTradeOff FAIL');
+      ' PASS'
+      : ' FAIL');
   });
-  it('Test simple unique string', 'asdf', true);
-  it('Test simple not unique string', 'asdfa', false);
-  it('Test simple unique string with upper Chars', 'aSDF', true);
-  it('Test simple not unique string with upper Chars', 'ASdfA', false);
+  it('should return true for unique string', 'asdf', true);
+  it('should return false for not unique string', 'asdfa', false);
+  it('should return true for unique string with upper chars', 'aSDF', true);
+  it('should return false for not unique string with upper chars', 'ASdfA', false);
 })();
