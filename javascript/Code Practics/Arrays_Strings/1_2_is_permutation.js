@@ -7,7 +7,7 @@
  * We will assume for this problem that the comparison is case 
  * sensitive and whitespace is significant. So, "god   " is different from "dog".
  *
- * Time Complexity O(N log(N))
+ * Time Complexity O(N log(N) / N2 (For Quick Sort worse case))
  * Space Complexity TradeOff: Quick Sort O(log(N)) or Merge SortO(N)
  *
  * @param string str1

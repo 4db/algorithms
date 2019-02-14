@@ -6,7 +6,7 @@
 /*
  * For Unicode Characters set, ~1M unique characters.
  *
- * Time Complexity O(N log(N))
+ * Time Complexity O(N log(N) / N2 (For Quick Sort worse case))
  * Space Complexity  TradeOff:O(log(N)) for Quick Sort and O(N) for Merge Sort
  *
  * @param string str
