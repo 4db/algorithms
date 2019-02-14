@@ -21,8 +21,8 @@ function rotateMatrix(matrix) {
     matrix[size-1-y][x] = temp;
   }
 
-  for (x = 0; x < size / 2; x++ ) {
-    for (y = x; y < size - x - 1; y ++) {
+  for (let x = 0; x < size / 2; x++ ) {
+    for (let y = x; y < size - x - 1; y ++) {
       swap(matrix, x, y);
     }
   }
