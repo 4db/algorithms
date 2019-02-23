@@ -2,6 +2,10 @@
  * the sums of its diagonals.
  */
 
+/*
+ * @param array
+ * @return number
+ */
 function diagonalDifference(arr) {
   let leftD = 0;
   let rightD = 0;
