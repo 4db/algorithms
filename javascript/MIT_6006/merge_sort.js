@@ -32,7 +32,6 @@ function mergeSort(arr) {
   })(mergeSort(left), mergeSort(right));
 }
 
-
 (() => {
   const test = 'Test mergeSort';
   const it = ((description, input, expect) => {
