@@ -2,6 +2,11 @@
  * Find cycle in Graph
  * Graph represent as adjacency Matrix
  *
+ * If graph has a different representation, we can modify for adjacency Matrix by:
+ *
+ * graph = Object.assign(...Object.keys(graph).map(
+ *  node => ({ [node]: graph[node].map(String) }) ));
+ *
  * @param object graph
  * @return array
  */
