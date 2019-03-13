@@ -1,4 +1,4 @@
-### Code practices in algorithmic/coding challenges.
+### Code practices in algorithmic, and coding challenges.
 
 
 #### Big O Complexities cheatsheet:
