@@ -1,3 +1,8 @@
+### Code practices in algorithmic/coding challenges.
+
+
+#### Big O Complexities cheatsheet:
+
 <table>
     <tbody>
     <tr>
