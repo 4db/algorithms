@@ -18,7 +18,7 @@ function Node(val) {
 
 /*
  * @param {array} list
- * @return {element}
+ * @return {number}
  */
 function popSmallestTime(list) {
   list.sort((a, b) => a.time - b.time);
@@ -32,15 +32,13 @@ function popSmallestTime(list) {
  */
 function createGraph(numNodes, edges) {
   const nodes = {};
-
-  for(var i = 1; i <= numNodes; i++) {
+  for (var i = 1; i <= numNodes; i++) {
     nodes[i] = new Node(i);
   }
 
   edges.forEach(([u, v, w]) => {
     nodes[u].next.push([nodes[v], w]);
   });
-
   return nodes;
 }
 
