@@ -11,7 +11,7 @@
  * @return array
  */
 function findCycle(graph) {
-    let queue = Object.keys(graph).map( node => [node] );
+    let queue = Object.keys(graph).map(node => [node]);
     while (queue.length) {
         const visited = [];
         for (const path of queue) {
@@ -25,6 +25,7 @@ function findCycle(graph) {
     }
   return [];
 }
+
 var graph = {
   'A': ['B', 'C'],
   'B': ['D'],
@@ -40,4 +41,5 @@ var graph = {
   'L': ['M'],
   'M': []
 };
+
 console.log('It should find a cycle in Direct Graph. Result:', getCycle(graph),  getCycle(graph).length > 0 ? 'PASS' : 'FAIL');
