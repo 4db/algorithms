@@ -7,8 +7,8 @@
  * graph = Object.assign(...Object.keys(graph).map(
  *  node => ({ [node]: graph[node].map(String) }) ));
  *
- * @param object graph
- * @return array
+ * @param {object []} graph
+ * @return {array}
  */
 function findCycle(graph) {
     let queue = Object.keys(graph).map(node => [node]);
