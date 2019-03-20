@@ -13,12 +13,14 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var middleNode = function(head) {
-    var fast = head;
-    var slow = head;
-    while(fast !== null && fast.next !== null) {
-        fast = fast.next.next
-        slow = slow.next
-    }
-    return slow
-};
+function middleNode(head) {
+  let fast = head;
+  let slow = head;
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next
+    slow = slow.next
+  }
+  return slow
+}
+
+//console.log('It should return [3,4,5]', middleNode([1,2,3,4,5]) == [3,4,5] ? 'PASS' : 'FAIL');
