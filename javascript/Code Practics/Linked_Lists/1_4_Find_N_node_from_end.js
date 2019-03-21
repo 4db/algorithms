@@ -3,6 +3,15 @@ function Node(n, v) {
     this.value = v;
 }
 
+/*
+ * Function find a N node from the end of Linked List
+ * Time Complexity O(N2) -> O(N)
+ * Space Complexity O(1)
+ *
+ * @param {Node} frontNode
+ * @param {number} target
+ * @return {number|string}
+ */
 function getNElValue(frontNode, target) {
   let count = 1;
   let current = frontNode.next;
@@ -22,6 +31,7 @@ function getNElValue(frontNode, target) {
   }
   return -1;  
 }
+
 const linkedList = new Node(null, -1);
 [1,2,3,4,5,6,7,8,9,10].reverse().map(el => linkedList.next = new Node(linkedList.next, el));
 console.log('It should return 8', getNElValue(linkedList, 3) === 8 ? 'PASS' : 'FAIL');
