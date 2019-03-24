@@ -5,32 +5,54 @@
  */
 
 const topPeek = 0;
+
+/*
+ * @param {number} i
+ * @return {number}
+ */
 function parent(i) {
   return ((i + 1) >>> 1) - 1;
 }
 
+/*
+ * @param {number} i
+ * @return {number}
+ */
 function left(i) {
   return (i << 1) + 1; 
 }
 
+/*
+ * @param {number} i
+ * @return {number}
+ */
 function right(i) {
   return (i + 1) << 1;
 }
 
 class PriorityQueue {
+
+  
+ /*
+  * @param {function} comparator
+  */
   constructor(comparator = (a, b) => a > b) {
     this._heap = [];
     this._comparator = comparator;
   }
+
   size() {
     return this._heap.length;
   }
+  
   isEmpty() {
     return this.size() == 0;
   }
+  
   peek() {
     return this._heap[topPeek];
   }
+  
   push(...values) {
     values.forEach(value => {
       this._heap.push(value);
@@ -38,6 +60,7 @@ class PriorityQueue {
     });
     return this.size();
   }
+  
   pop() {
     const poppedValue = this.peek();
     const bottom = this.size() - 1;
@@ -48,18 +71,22 @@ class PriorityQueue {
     this._siftDown();
     return poppedValue;
   }
+  
   replace(value) {
     const replacedValue = this.peek();
     this._heap[topPeek] = value;
     this._siftDown();
     return replacedValue;
   }
+  
   _greater(i, j) {
     return this._comparator(this._heap[i], this._heap[j]);
   }
+  
   _swap(i, j) {
     [this._heap[i], this._heap[j]] = [this._heap[j], this._heap[i]];
   }
+  
   _siftUp() {
     let node = this.size() - 1;
     while (node > topPeek && this._greater(node, parent(node))) {
@@ -67,6 +94,7 @@ class PriorityQueue {
       node = parent(node);
     }
   }
+  
   _siftDown() {
     let node = topPeek;
     while (
@@ -79,7 +107,6 @@ class PriorityQueue {
     }
   }
 }
-
 
 const queue = new PriorityQueue();
 queue.push(10, 20, 30, 40, 50);
