@@ -20,6 +20,7 @@ function getNElValue(frontNode, target) {
   if (target < 1) {
     return -1;
   }
+
   let count = 1;
   let current = frontNode.next;
   const out = [];
@@ -36,9 +37,9 @@ function getNElValue(frontNode, target) {
   return target > count ? -1 : out.shift();  
 }
 
-const linkedList = new Node(null, -1);
-[1,2,3,4,5,6,7,8,9,10].reverse().map(el => linkedList.next = new Node(linkedList.next, el));
-console.log('It should return 8', getNElValue(linkedList, 3), getNElValue(linkedList, 3) === 8 ? 'PASS' : 'FAIL');
-console.log('It should return 2', getNElValue(linkedList, 9) === 2 ? 'PASS' : 'FAIL');
-console.log('It should return -1', getNElValue(linkedList, 99) === -1 ? 'PASS' : 'FAIL');
-console.log('It should return -1', getNElValue(linkedList, -1) === -1 ? 'PASS' : 'FAIL');
+const TEST_LINKED_LIST = new Node(null, -1);
+[1,2,3,4,5,6,7,8,9,10].reverse().map(el => TEST_LINKED_LIST.next = new Node(TEST_LINKED_LIST.next, el));
+console.log('It should return 8', getNElValue(TEST_LINKED_LIST, 3), getNElValue(TEST_LINKED_LIST, 3) === 8 ? 'PASS' : 'FAIL');
+console.log('It should return 2', getNElValue(TEST_LINKED_LIST, 9) === 2 ? 'PASS' : 'FAIL');
+console.log('It should return -1', getNElValue(TEST_LINKED_LIST, 99) === -1 ? 'PASS' : 'FAIL');
+console.log('It should return -1', getNElValue(TEST_LINKED_LIST, -1) === -1 ? 'PASS' : 'FAIL');
