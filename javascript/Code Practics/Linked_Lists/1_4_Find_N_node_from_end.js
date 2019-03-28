@@ -23,18 +23,21 @@ function getNElValue(frontNode, target) {
 
   let count = 1;
   let current = frontNode.next;
-  const out = [];
+  let out = null
 
   while (current.next) {
+    if (count === target) {
+      out = frontNode.next;
+    }
     current = current.next;
     count++;
-    out.push(current.value);
-    if (count-1 > target) {
-      out.shift();
+
+    if (out !== null) {
+      out = out.next;
     }
   }
   
-  return target > count ? -1 : out.shift();  
+  return out === null ? -1 : out.value;  
 }
 
 const TEST_LINKED_LIST = new Node(null, -1);
