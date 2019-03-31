@@ -5,7 +5,6 @@
  */
 
 /*
- * 
  * Time Complexity - O(n);
  * Space Complexity - O(1);
  *
@@ -15,7 +14,6 @@
 function findMin(nums) {
  return Math.min(...nums);
 }
-
 
 /*
  * 
@@ -28,7 +26,6 @@ function findMin(nums) {
 function findMax(nums) {
  return Math.max(...nums);
 }
-
 
 (() => {
   const test = 'Test';
@@ -45,13 +42,12 @@ function findMax(nums) {
   it('should return -1 for 1234-156', [1,2,3,4,-1,5,6], -1);
 })();
 
-
 (() => {
   const test = 'Test';
   const it = ((description, input, expect) => {
     console.log(test + ' findMax ' + description + ':',
       findMax(input) === expect 
-      ? 
+      ?
       ' PASS'
       : ' FAIL');
   });
