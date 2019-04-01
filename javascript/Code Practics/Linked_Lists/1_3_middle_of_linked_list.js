@@ -24,5 +24,4 @@ function middleNode(head) {
 }
 const TEST_LINKED_LIST = new Node(null, -1);
 [1,2,3,4,5,6,7,8,9,10].reverse().map(el => TEST_LINKED_LIST.next = new Node(TEST_LINKED_LIST.next, el));
-
 console.log('It should return 5', middleNode(TEST_LINKED_LIST).value === 5 ? 'PASS' : 'FAIL');
