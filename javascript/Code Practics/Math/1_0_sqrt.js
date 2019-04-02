@@ -32,3 +32,27 @@ function squareRootsLeetCode(x){
 }
 console.log('It should return squareRootsLeetCode(2)', squareRootsLeetCode(2) === 1 ? 'PASS' : 'FAIL');
 console.log('It should return squareRootsLeetCode(8)', squareRootsLeetCode(8) === 2 ? 'PASS' : 'FAIL');
+
+/*
+ * 
+ * @param {number} x
+ * @return {number}
+ */
+function sqrt(x){
+  let left = 0, right = x, mid;
+  for(let i = 0 ; i < 1000 ; i++){
+    mid = (left + right) / 2;
+    if (mid * mid == x) {
+      return mid;
+    }
+    if (mid * mid > x) {
+      right = mid;
+    }
+    else {
+      left = mid;
+    }
+  }
+  return mid;
+}
+console.log('It should return sqrt(2)', sqrt(2) === 1.414213562373095 ? 'PASS' : 'FAIL');
+console.log('It should return sqrt(8)', sqrt(8) === 2.828427124746190 ? 'PASS' : 'FAIL');
