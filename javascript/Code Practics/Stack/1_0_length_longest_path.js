@@ -1,5 +1,6 @@
 /**
- * https://leetcode.com/problems/longest-absolute-file-path/
+ * 388. Longest Absolute File Path
+ *
  * We are interested in finding the longest (number of characters) absolute path to a
  * file within our file system. For example, in the second example above, the longest 
  * absolute path is "dir/subdir2/subsubdir2/file2.ext", and its length is 32
