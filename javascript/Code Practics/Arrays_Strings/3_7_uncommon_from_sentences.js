@@ -25,3 +25,6 @@ function uncommonFromSentences(A, B) {
 
 console.log('It should return ["sweet","sour"]', uncommonFromSentences("this apple is sweet",
 "this apple is sour"));
+
+console.log('It should return []', uncommonFromSentences("",
+""));
