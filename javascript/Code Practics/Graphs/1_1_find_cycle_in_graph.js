@@ -11,22 +11,23 @@
  * @return {array}
  */
 function findCycle(graph) {
-    let queue = Object.keys(graph).map(node => [node]);
+  let queue = Object.keys(graph).map(node => [node]);
     while (queue.length) {
-        const visited = [];
-        for (const path of queue) {
-            const parents = graph[path[0]] || [];
-            for (const node of parents) {
-                if (node === path[path.length-1]) return [node, ...path];
-                visited.push([node, ...path]);
+      const visited = [];
+      for (const path of queue) {
+        const parents = graph[path[0]] || [];
+        for (const node of parents) {
+            if (node === path[path.length-1]) {
+              return [node, ...path];
             }
+            visited.push([node, ...path]);
         }
-        queue = visited;
+      }
+      queue = visited;
     }
   return [];
 }
-
-var graph = {
+let graph = {
   'A': ['B', 'C'],
   'B': ['D'],
   'C': ['D'],
@@ -41,5 +42,4 @@ var graph = {
   'L': ['M'],
   'M': []
 };
-
 console.log('It should find a cycle in Direct Graph. Result:', getCycle(graph),  getCycle(graph).length > 0 ? 'PASS' : 'FAIL');
