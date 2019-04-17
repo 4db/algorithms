@@ -1,24 +1,24 @@
 /**
+ * 133. Clone Graph
  * Given a reference of a node in a connected undirected graph,
  * return a deep copy (clone) of the graph. Each node in the graph contains
  * a val (int) and a list (List[Node]) of its neighbors.
- * // Definition for a Node.
+ * Definition for a Node.
  * function Node(val,neighbors) {
  *    this.val = val;
  *    this.neighbors = neighbors;
  * };
- */
-/**
+ *
  * @param {Node} node
  * @return {Node}
  */
-const UndirectedGraphNode = function(v, n = []) {
-    this.val = v;
-    this.neighbors = n;
-};
+function UndirectedGraphNode(v, n = []) {
+  this.val = v;
+  this.neighbors = n;
+}
 
 // use queue and breadth first search
-const cloneGraph = function(graph) {
+function cloneGraph(graph) {
   if (graph === null) {
     return graph;
   }
