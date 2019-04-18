@@ -106,6 +106,11 @@
       <td><code>O(log(n))</code></td>
     </tr>
     <tr>
+      <td><a href="http://en.wikipedia.org/wiki/Heapsort">Heapsort</a></td>
+      <td colspan="4"><code >O(n log(n))</td>
+      <td><code>O(1)</code></td>
+    </tr>
+    <tr>
       <td><a href="http://en.wikipedia.org/wiki/Merge_sort">Mergesort</a></td>
       <td colspan="4"><code >O(n log(n))</code></td>
       <td><code>O(n)</code></td>
@@ -121,8 +126,8 @@
       <td><code>O(1)</code></td>
     </tr>
     <tr>
-      <td><a href="http://en.wikipedia.org/wiki/Heapsort">Heapsort</a></td>
-      <td colspan="4"><code >O(n log(n))</td>
+      <td><a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">Binary search algorithm(Only sorted Arr)</a></td>
+      <td colspan="4"><code >O(log(n))</td>
       <td><code>O(1)</code></td>
     </tr>
     <tr>
