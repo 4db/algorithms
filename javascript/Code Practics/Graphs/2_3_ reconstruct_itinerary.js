@@ -1,9 +1,18 @@
-// 332. Reconstruct Itinerary
-// Given a list of airline tickets represented by pairs of departure and arrival airports [from, to], 
-// reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK. 
-// Thus, the itinerary must begin with JFK.
-
-const dfs = (source, graph, length, path = []) => {
+/**
+ * 332. Reconstruct Itinerary
+ * Given a list of airline tickets represented by
+ * pairs of departure and arrival airports [from, to], 
+ * reconstruct the itinerary in order. All of the tickets
+ * belong to a man who departs from JFK. 
+ * Thus, the itinerary must begin with JFK.
+ *
+ * @param string source
+ * @param {node} graph
+ * @param number length
+ * @param array path
+ * @return array
+ */
+function dfs(source, graph, length, path = []) {
   if (path.length === length) {
     return path.concat(source);
   }
@@ -20,11 +29,13 @@ const dfs = (source, graph, length, path = []) => {
     }
     graph[source] = newList.concat(neighbour);
   }
-
   return [];
-};
+}
 
-const constructGraph = tickets => {
+/**
+ * @param array ticket
+ * @return {node}
+function constructGraph(ticket) {
   const graph = tickets.reduce((graph, ticket) => {
     const [from, to] = ticket;
     const neighbours = graph[from] || [];
@@ -37,11 +48,17 @@ const constructGraph = tickets => {
     destinations.sort();
   }
   return graph;
-};
-const findItinerary = tickets => {
+}
+
+/**
+ * @param array tickets
+ * @return array
+ */
+function findItinerary(tickets) {
   const graph = constructGraph(tickets);
   const path = dfs("JFK", graph, tickets.length, []);
   if (path) {
     return path;
   }
-};
+  return [];
+}
