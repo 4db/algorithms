@@ -35,6 +35,7 @@ function dfs(source, graph, length, path = []) {
 /**
  * @param array ticket
  * @return {node}
+ */
 function constructGraph(ticket) {
   const graph = tickets.reduce((graph, ticket) => {
     const [from, to] = ticket;
