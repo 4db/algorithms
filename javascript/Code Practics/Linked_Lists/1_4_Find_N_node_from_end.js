@@ -42,7 +42,8 @@ function getNElValue(frontNode, target) {
 
 const TEST_LINKED_LIST = new Node(null, -1);
 [1,2,3,4,5,6,7,8,9,10].reverse().map(el => TEST_LINKED_LIST.next = new Node(TEST_LINKED_LIST.next, el));
-console.log('It should return 8', getNElValue(TEST_LINKED_LIST, 3), getNElValue(TEST_LINKED_LIST, 3) === 8 ? 'PASS' : 'FAIL');
+
+console.log('It should return 8', getNElValue(TEST_LINKED_LIST, 3) === 8 ? 'PASS' : 'FAIL');
 console.log('It should return 2', getNElValue(TEST_LINKED_LIST, 9) === 2 ? 'PASS' : 'FAIL');
 console.log('It should return -1', getNElValue(TEST_LINKED_LIST, 99) === -1 ? 'PASS' : 'FAIL');
 console.log('It should return -1', getNElValue(TEST_LINKED_LIST, -1) === -1 ? 'PASS' : 'FAIL');
