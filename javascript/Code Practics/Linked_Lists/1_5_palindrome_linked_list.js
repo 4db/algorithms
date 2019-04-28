@@ -1,17 +1,10 @@
 /**
  * 234. Palindrome Linked List
  *
- * Definition for singly-linked list.
- * 
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- *
  * @param {ListNode} head
  * @return {boolean}
  */
-isPalindrome(head) {
+function isPalindrome(head) {
   if (head === null || head.next === null) {
     return true;
   }
@@ -43,3 +36,20 @@ isPalindrome(head) {
   }
   return true;
 }
+
+/*
+ * @param {Node|null} nextNode
+ * @param {val} val
+ */
+function Node(nextNode, val) {
+  this.next = nextNode;
+  this.val = val;
+}
+
+const TEST_LINKED_LIST_PALINDROME = new Node(null, 1);
+[2,3,3,2,1].reverse().map(el => TEST_LINKED_LIST_PALINDROME.next = new Node(TEST_LINKED_LIST_PALINDROME.next, el));
+console.log('It should return true', isPalindrome(TEST_LINKED_LIST_PALINDROME) === true ? 'PASS' : 'FAIL');
+
+const TEST_LINKED_LIST_NOT_PALINDROME = new Node(null, 1);
+[2,3,4,5,6,7].reverse().map(el => TEST_LINKED_LIST_NOT_PALINDROME.next = new Node(TEST_LINKED_LIST_NOT_PALINDROME.next, el));
+console.log('It should return false', isPalindrome(TEST_LINKED_LIST_NOT_PALINDROME) === false ? 'PASS' : 'FAIL');
