@@ -3,19 +3,12 @@
  * Given a sorted linked list,
  * delete all duplicates such that each element appear only once.
  *
- * Definition for singly-linked list.
- * function ListNode(val) {
- *   this.val = val;
- *   this.next = null;
- * }
- */
-/**
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
+function deleteDuplicates(head) {
   let current = head;
-  
+
   while (current && current.next) {
     if (current.val === current.next.val) {
       current.next = current.next.next;
@@ -24,4 +17,17 @@ var deleteDuplicates = function(head) {
     }
   }
   return head;
-};
+}
+
+/*
+ * @param {Node|null} nextNode
+ * @param {val} val
+ */
+function Node(nextNode, val) {
+  this.next = nextNode;
+  this.val = val;
+}
+
+const TEST_LINKED_LIST = new Node(null, 1);
+[1,1,1,1,2].reverse().map(el => TEST_LINKED_LIST.next = new Node(TEST_LINKED_LIST.next, el));
+console.log('It should return next 2', deleteDuplicates(TEST_LINKED_LIST).next === 2);
