@@ -69,5 +69,106 @@ Implement BFS. Describe time and space complexity and difference between DFS.
 ### VI Tree traversal(20/1)
 - #### convert_tree_to_arr.js
 ### VII Binary Search(20/0)
+- #### Draw binary search trees.
+Draw binary search trees of height 2, 3, 4, 5, and 6 on the set of keys {1, 4, 5, 10, 16, 17, 21}.
+<details>
+ <summary>Answer height 2</summary>
+
+```js
+/* height 2
+ *
+ *        10 
+ *       /   \
+ *      4     17
+ *     / \   /  \
+ *    1   5  16  21
+ */
+```
+
+</details>
+
+
+<details>
+ <summary>Answer height 3</summary>
+
+```js
+/* height 3
+ *
+ *        10 
+ *       /   \
+ *      5     17
+ *     /     /  \
+ *    4     16  21
+ *   /
+ *  1
+ */
+```
+
+</details>
+
+<details>
+ <summary>Answer height 4</summary>
+
+```js
+/* height 4
+ *
+ *        10 
+ *       /   \
+ *      5     17
+ *     /     /  \
+ *    4     16  21
+ *   /
+ *  1
+ */
+```
+
+</details>
+
+<details>
+ <summary>Answer height 5</summary>
+
+```js
+/* height 5
+ *
+ *              21
+ *             /  \
+ *            16   17
+ *           /
+ *          10
+ *         /
+ *        5
+ *       /
+ *      4
+ *     /
+ *    1
+ */
+```
+
+</details>
+
+<details>
+ <summary>Answer height 6</summary>
+
+```js
+/* height 6
+ *
+ *                17
+ *               /
+ *              21
+ *             /
+ *            16
+ *           /
+ *          10
+ *         /
+ *        5
+ *       /
+ *      4
+ *     /
+ *    1
+ */
+```
+
+</details>
+  
 ### VII Heap(5/0)
 - #### 1_1_find_min_max_in_rotated_arr.js
