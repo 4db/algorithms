@@ -43,12 +43,61 @@ Analyze the running time of the stack operations.
 
 ### IV LinkedList(7/7)
 
-- #### 1_0_Merge_two_sorted_lists.js Added test case 2 days ago
-- #### 1_1_Swap_nodes_in_pairs.js  Add 1.1 Swap Nodes in LL pairs  3 months ago
-- #### 1_2_Odd_Even_LinkedList.js  Add a odd even LL 3 months ago
-- #### 1_3_middle_of_linked_list.js  Update 1_3_middle_of_linked_list.js a month ago
-- #### 1_4_Find_N_node_from_end.js Update 1_4_Find_N_node_from_end.js  9 days ago
-- #### 1_5_palindrome_linked_list.js Updated comments  8 days ago
+- #### Merge two sorted linked lists
+Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+<details>
+ <summary>Test case</summary>
+
+```js
+const TEST_LINKED_LIST_1 = new Node(null, -1);
+[1,2,3,4,5].reverse().map(el => TEST_LINKED_LIST_1.next = new Node(TEST_LINKED_LIST_1.next, el));
+
+const TEST_LINKED_LIST_2 = new Node(null, -1);
+[6,7,8,9,10].reverse().map(el => TEST_LINKED_LIST_2.next = new Node(TEST_LINKED_LIST_2.next, el));
+
+console.log('It should return merged linked list', conmergeTwoLists(TEST_LINKED_LIST_1, TEST_LINKED_LIST_2));
+```
+</details>
+
+<details>
+ <summary>Answer</summary>
+
+```js
+const mergeTwoLists = (l1, l2) => {
+  let mergedLinkedListHead = {val: -1, next: null};
+  let runner = mergedLinkedListHead;
+
+  while (l1 && l2) {
+    if (l1.val > l2.val) {
+      runner.next = l2;
+      l2 = l2.next;
+    }
+    else {
+      runner.next = l1;
+      l1 = l1.next;
+    }
+    runner = runner.next;
+  }
+  // For case if l1 already empty, but l2 is not
+  runner.next = l1 || l2;
+  return mergedLinkedListHead.next;
+}
+
+class Node() {
+  constructor(nextNode, value) {
+    this.next = nextNode;
+    this.value = value;
+  }
+}
+```
+
+</details>
+- #### 1_1_Swap_nodes_in_pairs.js
+- #### 1_2_Odd_Even_LinkedList.js
+- #### 1_3_middle_of_linked_list.js
+- #### 1_4_Find_N_node_from_end.js
+- #### 1_5_palindrome_linked_list.js
 - #### 1_6_remove_dublicates_from_sorted_list.js
 
 ### V Graph/DFS/BFS(6/6)
