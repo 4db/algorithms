@@ -26,7 +26,43 @@ Suppose an array sorted in ascending order is rotated at some pivot unknown to y
 - #### 69. Sqrt(x) 
 Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
 
-### III Stack/Queue(4/4)
+### III Stack/Queue(5/5)
+
+- #### Write isValid function
+Given a string containing just the characters '(', ')', '[' and ']', determine if the input string is valid.
+
+<details>
+ <summary>Test cases</summary>
+
+```js
+console.log('It should return true', isValid('[()]()') === true ? 'PASS' : 'FAIL');
+console.log('It should return true', isValid('[([[()]])]()') === true ? 'PASS' : 'FAIL');
+console.log('It should return true', isValid('[([[())]])]()') === false ? 'PASS' : 'FAIL');
+console.log('It should return true', isValid('[([[()]])]()]') === false ? 'PASS' : 'FAIL');
+```
+
+</details>
+
+<details>
+ <summary>Answer</summary>
+ 
+```js
+function isValid(str) {
+  const options = {'(' : ')', '[' : ']'};
+  const stack = [];
+  for (c of str) {
+    if (options[c]) {
+      stack.push(options[c]);
+    }
+    else if (stack.length === 0 || stack.pop() !== c) {
+      return false;
+    }
+  }
+  return stack.length === 0;
+}
+```
+
+</details>
 
 - #### Implement two stacks in one array
 A [1 . . n] in such a way that neither stack overflows unless
