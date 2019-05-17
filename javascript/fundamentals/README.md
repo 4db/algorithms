@@ -156,6 +156,38 @@ Implement BFS. Describe time and space complexity and difference between DFS.
 ### VI Tree traversal(20/1)
 - #### convert_tree_to_arr.js
 ### VII Binary Search(20/0)
+- #### Binary tree search operation.
+
+What time complexity for complete binary tree? <br/>
+What time complexity for liner chain of nodes? <br/>
+What time complexit for randomly build binary tree? <br/>
+
+<details>
+ <summary>Answer</summary>
+ 
+  - complete binary tree O (lg n)
+  - liner chain of nodes O (n)
+  - randomly build binary tree O (lg n)
+</details>
+
+- #### What time complexity to Inorder / Preorder / Postorder binary search tree walk:
+<details>
+ <summary>Answer</summary> 
+ O (n)
+</details>
+
+- #### What time complexity for construction a binary tree from list of n elements?
+<details>
+ <summary>Answer</summary> 
+ For constructing a binary tree from the list of n elements takes O(n log n) time for worst case
+</details>
+
+- #### What time complexity for search operation in binary tree? Find min / Find max ?
+<details>
+ <summary>Answer</summary> 
+ Search operation O(h), where h is height of the tree <br/>
+ Find min / Find max - O(h)
+</details>   
 - #### Draw binary search trees.
 Draw binary search trees of height 2, 3, 4, 5, and 6 on the set of keys {1, 4, 5, 10, 16, 17, 21}.
 <details>
