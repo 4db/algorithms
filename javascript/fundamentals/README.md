@@ -15,16 +15,13 @@ Implement merge sort algorithm.
 - #### quickSort
 Implement quick sort algorithm.
 
-### II Dynamic programming/Greedy Algo/Math(15/3)
+### II Dynamic programming/Greedy Algo/Math(15/2)
 
 - #### 509. Fibonacci Number
 Implement function getFibonacciNumber(N). Describe time and space complexity.
 
 - ####  153. Find Minimum|Maximum in Rotated Sorted Array.
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
-
-- #### 69. Sqrt(x) 
-Compute and return the square root of x, where x is guaranteed to be a non-negative integer.
 
 ### III Stack/Queue(5/5)
 
