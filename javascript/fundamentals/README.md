@@ -1,3 +1,38 @@
+### General
+
+Write Big-O functions with analyzing algorithms from O(1) to O(n!) with comon names:
+
+<details>
+ <summary>Hint</summary>
+
+```
+O(1)
+O(log(n))
+O((log(n))c)
+O(n)
+O(n^2)
+O(n^c)
+O(c^n)
+O(n!)
+```
+</details>
+
+<details>
+ <summary>Answer</summary>
+ 
+``` 
+O(1) - constant time
+O(log(n)) - logarithmic time
+O((log(n))c) - polylogarithmic time
+O(n) - linear time
+O(n^2) - quadratic time
+O(n^c) - polynomial time
+O(c^n) - exponential time
+O(n!) - factorial time
+```
+
+</details>
+
 ### I Array Sorting(5/5)
 
 - #### Sorting/Quicksort/MergeSort
