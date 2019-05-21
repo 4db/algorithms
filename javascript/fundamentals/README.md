@@ -1,6 +1,6 @@
 ### General
 
-Write Big-O functions with analyzing algorithms from O(1) to O(n!) with comon names:
+Write Big-O functions with analyzing algorithms from O(1) to O(n!) with name and example:
 
 <details>
  <summary>Hint</summary>
@@ -8,8 +8,9 @@ Write Big-O functions with analyzing algorithms from O(1) to O(n!) with comon na
 ```
 O(1)
 O(log(n))
-O((log(n))c)
+O( log(n) ^ c )
 O(n)
+O(nlogn)
 O(n^2)
 O(n^c)
 O(c^n)
@@ -20,15 +21,18 @@ O(n!)
 <details>
  <summary>Answer</summary>
  
+ https://en.wikipedia.org/wiki/Big_O_notation
+ 
 ``` 
-O(1) - constant time
-O(log(n)) - logarithmic time
-O((log(n))c) - polylogarithmic time
-O(n) - linear time
-O(n^2) - quadratic time
-O(n^c) - polynomial time
-O(c^n) - exponential time
-O(n!) - factorial time
+O(1) - constant time, example: Calcoperation; Determining if a binary number is even or odd;
+O(log(n)) - logarithmic time, example: finding an item in a sorted array with a binary search;
+O( log(n) ^ c ) - polylogarithmic time, example: Matrix chain ordering can be solved in polylogarithmic time on a parallel random-access machine;
+O(n) - linear time, example: 	Finding an item in an unsorted list or in an unsorted array;
+O(nlogn) - linearithmic, example: Heapsort, Mergesort;
+O(n^2) - quadratic time, example: worst case Quick Sort;
+O(n^c) - polynomial time, example: Tree-adjoining grammar parsing; maximum matching for bipartite graphs;
+O(c^n) - exponential time, example: Finding the (exact) solution to the travelling salesman problem using dynamic programming, or simple Fibonacci sequence;
+O(n!) - factorial time: Solving the travelling salesman problem via brute-force search;
 ```
 
 </details>
