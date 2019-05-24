@@ -1,6 +1,6 @@
 /*
  * Time Complexity(O(nlogn))
- * Space Complexity(N)
+ * Space Complexity(N) for recursive callstack
  *
  * @param array arr
  * @return sorted array
@@ -18,8 +18,8 @@ const mergeSort = (arr) => {
 }
 
 /**
- * @param le - left part of arr
- * @param ri - right part of arr
+ * @param array le - left part of arr
+ * @param array ri - right part of arr
  * @return sorted array
  */
 const recurstionMerge = (le, ri) => {
