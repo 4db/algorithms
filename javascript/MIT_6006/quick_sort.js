@@ -28,17 +28,6 @@ function quickSort(arr, left, right) {
 
 /*
  * @param {array} arr
- * @param {string|int} key
- * @param {string|int} secondKey
- */
-function swap(arr, key, secondKey) {
-  let temp = arr[key];
-  arr[key] = arr[secondKey];
-  arr[secondKey] = temp;
-}
-
-/*
- * @param {array} arr
  * @param {integer} left
  * @param {integer} right
  */
@@ -61,6 +50,17 @@ function getPivot(arr, left, right) {
     }
   }
   return left;
+}
+
+/*
+ * @param {array} arr
+ * @param {string|int} key
+ * @param {string|int} secondKey
+ */
+function swap(arr, key, secondKey) {
+  let temp = arr[key];
+  arr[key] = arr[secondKey];
+  arr[secondKey] = temp;
 }
 
 const test = 'Test quickSort';
