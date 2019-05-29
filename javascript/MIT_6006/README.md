@@ -1,4 +1,8 @@
-#### Javascript Algorithm implementation
+#### Javascript Algorithm implementation of [MIT Course Number 6.006](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/)
+
+
+<details>
+ <summary>Algorithm Time & Space complexity</summary>
 
 <table>
     <tbody>
@@ -154,9 +158,7 @@
     </tr>
 </tbody>
 </table>
-
-
-[MIT Course Number 6.006](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/lecture-videos/)
+</details>
 
  - Lecture 1: Algorithmic Thinking, Peak Finding
  - Lecture 2: Models of Computation, Document Distance
