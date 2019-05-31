@@ -39,11 +39,29 @@ O(n!) - factorial time: Solving the travelling salesman problem via brute-force 
 
 ### I Array Sorting(5/5)
 
-- #### Sorting/Quicksort/MergeSort
+- #### Quicksort / MergeSort
 Describe worst time and space complexity.
 
-- #### Counting Sort/ Selection Sort
+<details>
+ <summary>Answer</summary>
+
+```
+Quicksort O(n^2) / Space - O(logn)
+Mergesort O(nlogn) / Space - O(n)
+```
+</details>
+
+- #### Counting Sort / HeapSort
 Describe worst time and space complexity
+
+<details>
+ <summary>Answer</summary>
+
+```
+Counting O(n+k) / Space - O(k)
+HeapSort O(nlogn) / Space - O(1)
+```
+</details>
 
 - #### heapSort
 Implement heap sort algorithm.
