@@ -3,64 +3,62 @@
  * Space Complexity O(logn)
  *
  * @param {array} arr
- * @param {array} left
- * @param {array} right
+ * @param {array} le left part
+ * @param {array} ri rigt part
  */
-function quickSort(arr, left, right) {
-  let index;
+function quickSort(arr, le, ri) {
   if (arr.length <= 1) {
     return arr;
   }
+  le = !le ? 0 : le;
+  ri = !ri ? arr.length - 1 : ri;
+  let i = getPivot(arr, le, ri);
 
-  left  = left === undefined ? 0 : left;
-  right = right === undefined ? arr.length - 1 : right;
-  index = getPivot(arr, left, right);
-  if (left < index - 1) {
-    quickSort(arr, left, index - 1);
+  if (le < i - 1) {
+    quickSort(arr, le, i - 1);
   }
 
-  if (index < right) {
-    quickSort(arr, index, right);
+  if (i < ri) {
+    quickSort(arr, i, ri);
   }
-
   return arr;
 }
 
 /*
  * @param {array} arr
- * @param {integer} left
- * @param {integer} right
+ * @param {integer} le left value
+ * @param {integer} ri right value
  */
-function getPivot(arr, left, right) {
-  let pivot = arr[Math.floor((left + right) / 2)];
+function getPivot(arr, le, ri) {
+  let pivot = arr[Math.floor((le + ri) / 2)];
 
-  while(left <= right) {
-    while(arr[left] < pivot) {
-      left++;
+  while(le <= ri) {
+    while(arr[le] < pivot) {
+      le++;
     }
 
-    while(arr[right] > pivot) {
-      right--;
+    while(arr[ri] > pivot) {
+      ri--;
     }
 
-    if (left <= right) {
-      swap(arr, left, right);
-      left++;
-      right--;
+    if (le <= ri) {
+      swap(arr, le, ri);
+      le++;
+      ri--;
     }
   }
-  return left;
+  return le;
 }
 
 /*
  * @param {array} arr
- * @param {string|int} key
- * @param {string|int} secondKey
+ * @param {string|int} keyA
+ * @param {string|int} keyB
  */
-function swap(arr, key, secondKey) {
-  let temp = arr[key];
-  arr[key] = arr[secondKey];
-  arr[secondKey] = temp;
+function swap(arr, keyA, keyB) {
+  let temp = arr[keyA];
+  arr[keyA] = arr[keyB];
+  arr[keyB] = temp;
 }
 
 const test = 'Test quickSort';
