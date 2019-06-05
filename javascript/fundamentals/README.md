@@ -239,14 +239,187 @@ function isValid(str) {
 A [1 . . n] in such a way that neither stack overflows unless
 the total number of elements in both stacks together is n. The PUSH and POP operations should runin O(1) time.
 
+<details>
+ <summary>Answer</summary>
+ 
+```js
+
+// O(1) time complexity for push and pop operations
+class TwoStackInArr {
+  /**
+   * @param {array} size
+   */
+  constructor(size) {
+    this.arr = new Array(size);
+    this.topFirst = -1;
+    this.topSecond = n;
+  }
+
+  /**
+   * @param {number|string} value
+   * @return {boolean|string}
+   */
+  pushFirst(value) {
+    if (this.topFirst < this.topSecond - 1) {
+      this.topFirst++;
+      this.arr[this.topFirst] = value;
+      return true;
+    }
+    return 'Stack overflow';
+  }
+
+  /**
+   * @param {number|string} value
+   * @return {boolean|string}
+   */
+  pushSecond(value) {
+    if (this.topFirst < this.topSecond - 1) {
+      this.topSecond--;
+      this.arr[this.topSecond] = value;
+      return true;
+    }
+    return 'Stack overflow';
+  }
+
+  /**
+   * @param {number|string} value
+   * @return {boolean|string}
+   */
+  popFirst() {
+    if (this.topFirst >= 0) {
+      const response = this.arr[this.topFirst];
+      this.topFirst--;
+      return response;
+    }
+    return 'Stack Underflow';
+  }
+
+  /**
+   * @param {number|string} value
+   * @return {boolean|string}
+   */
+  popSecond() {
+    if (this.topSecond < this.arr.length) {
+      const response = this.arr[this.topSecond];
+      this.topSecond--;
+      return response;
+    }
+    return 'Stack Underflow';
+  }
+}
+
+let testStack = new TwoStackInArr(10);
+[1,2,3,4,5,6,7,8,9,10].forEach((i, v) => testStack.pushFirst(v));
+console.log('It should return correct top indexes:', testStack.topFirst === 9 && testStack.topSecond === 10 ? 'PASS' : 'FAIL');
+console.log('It should return StackOverflow message:', testStack.pushFirst(11) === 'Stack overflow' ? 'PASS' : 'FAIL');
+console.log('It should return StackUnderflow message:', testStack.popSecond() === 'Stack Underflow' ? 'PASS' : 'FAIL');
+
+```
+</details>
+
 - #### Stack insertion and deletion
 Whereas a stack allows insertion and deletion of elements at only one end and a queue allows insertion at one end and deletion at the other end, a deque (double-ended queue) allows insertion and deletion at both ends. Write four O(1)-time procedures to insert elements into and delete elements from both ends of a deque constructed from an array.
 
 - #### Implement a queue using two stacks.
 Analyze the running time of the queue operations.
 
+<details>
+ <summary>Answer</summary>
+
+```js
+/**
+ * Time complexity O(1)
+ * Space complexity O(n)
+ */
+class QueueInTwoStacks {
+  constructor() {
+    this.firstStack = [];
+    this.secondReverseStack = [];
+  }
+
+  /**
+   * Time complexity O(1)
+   * @param {number} x
+   */
+  enqueue(x) {
+    this.firstStack.push(x);
+  }
+
+  /**
+   * Time complexity O(1) based Amortized analysis
+   * worst time complexity O(n)
+   * @return {number} | -1 + console error
+   */
+  dequeue() {
+    if (this.secondReverseStack.length === 0) {
+      if (this.firstStack.length === 0) {
+        console.log('queue underflow');
+        return -1;
+      }
+
+      while (this.firstStack.length) {
+        this.secondReverseStack.push(this.firstStack.pop());
+      }
+    }
+    return this.secondReverseStack.pop();
+  }
+}
+```
+
+</details>
+
 - #### Show how to implement a stack using two queues.
 Analyze the running time of the stack operations.
+
+
+<details>
+ <summary>Answer</summary>
+
+```js
+/**
+ * Time complexity O(1)
+ * Space complexity O(n)
+ */
+class StackInTwoQueues {
+  constructor() {
+    this.firstQueue = [];
+    this.secondReverseQueue = [];
+  }
+
+  /**
+   * Time complexity O(1)
+   * @param {number} x
+   */
+  push(x) {
+    // Simulate enqueue
+    this.firstQueue.push(x);
+  }
+
+  /**
+   * Time complexity O(1) based Amortized analysis
+   * worst time complexity O(n)
+   * @return {number} | -1 + console error
+   */
+  pop() {
+    if (this.secondReverseQueue.length === 0) {
+      if (this.firstQueue.length === 0) {
+        console.log('Stack underflow');
+        return -1;
+      }
+
+      while (this.firstQueue.length) {
+        //shift() => dequeue
+        this.secondReverseQueue.push(this.firstQueue.shift());
+      }
+    }
+    // shift() => dequeue
+    return this.secondReverseQueue.shift();
+  }
+}
+```
+
+</details>
+
 
 ### IV LinkedList(7/7)
 
