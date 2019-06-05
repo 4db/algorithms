@@ -119,15 +119,15 @@ const mergeSort = (arr) => {
 const recurstionMerge = (le, ri) => {
   const res = [];
 
-  while(le.length && ri.length) {
+  while (le.length && ri.length) {
     res.push(le[0] < ri[0] ? le.shift() : ri.shift());
   }
 
-  while(le.length) {
+  while (le.length) {
     res.push(le.shift());
   }
 
-  while(ri.length) {
+  while (ri.length) {
     res.push(ri.shift());
   }
   return res;
@@ -139,6 +139,53 @@ const recurstionMerge = (le, ri) => {
 - #### quickSort
 Implement quick sort algorithm.
 
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function quickSort(arr, le, ri) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  le = !le ? 0 : le;
+  ri = !ri ? arr.length - 1 : ri;
+  let i = getPivot(arr, le, ri);
+
+  if (le < i - 1) {
+    quickSort(arr, le, i - 1);
+  }
+
+  if (i < ri) {
+    quickSort(arr, i, ri);
+  }
+  return arr;
+}
+
+function getPivot(arr, le, ri) {
+  let pivot = arr[Math.floor((le + ri) / 2)];
+
+  while (le <= ri) {
+    while (arr[le] < pivot) {
+      le++;
+    }
+
+    while (arr[ri] > pivot) {
+      ri--;
+    }
+
+    if (le <= ri) {
+      swap(arr, le, ri); //helper function
+      le++;
+      ri--;
+    }
+  }
+  return le;
+}
+```
+
+</details>
+
 ### II Dynamic programming/Greedy Algo/Math(15/2)
 
 - #### 509. Fibonacci Number
@@ -146,6 +193,9 @@ Implement function getFibonacciNumber(N). Describe time and space complexity.
 
 - ####  153. Find Minimum|Maximum in Rotated Sorted Array.
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
+
+- #### Min size sub array
+https://www.programcreek.com/2014/05/leetcode-minimum-size-subarray-sum-java
 
 ### III Stack/Queue(5/5)
 
