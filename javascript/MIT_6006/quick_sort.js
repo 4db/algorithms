@@ -32,12 +32,12 @@ function quickSort(arr, le, ri) {
 function getPivot(arr, le, ri) {
   let pivot = arr[Math.floor((le + ri) / 2)];
 
-  while(le <= ri) {
-    while(arr[le] < pivot) {
+  while (le <= ri) {
+    while (arr[le] < pivot) {
       le++;
     }
 
-    while(arr[ri] > pivot) {
+    while (arr[ri] > pivot) {
       ri--;
     }
 
@@ -97,5 +97,6 @@ it('should sort negative elements',
 
 it('should sort negative elements with duplicate elements',
   [12, 12, 23, 4 , 6, 6, 10, -35, 28], [-35, 4, 6, 6, 10, 12, 12, 23, 28]);
+
 it('should sort same elements',
   [12, 12, 12, 12, 12], [12, 12, 12, 12, 12]);
