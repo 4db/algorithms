@@ -1,4 +1,3 @@
-
 /*
  * Time complexity O(nlogn)
  * Space complexity O(1)
@@ -7,38 +6,46 @@
  * @return sorted array
  */
 function heapSort(arr) {
-  let arrLen = arr.length;
-  const heapRoot = function (arr, i) {
+  let size = arr.length;
+
+  /**
+   * Local recursive function for use scope vars:
+   * @scope number len
+   * @scope array arr
+   *
+   * @param number i
+   */
+  const heapRoot = function (i) {
     let max   = i;
     const left  = 2 * i + 1;
     const right = 2 * i + 2;
 
-    if (left < arrLen && arr[left] > arr[max]) {
+    if (left < size && arr[left] > arr[max]) {
       max = left;
     }
 
-    if (right < arrLen && arr[right] > arr[max]) {
+    if (right < size && arr[right] > arr[max]) {
       max = right;
     }
 
     if (max != i) {
       swap(arr, i, max);
-      heapRoot(arr, max);
+      heapRoot(max);
     }
   }
 
-  for (let i = Math.floor(arrLen / 2); i >= 0; i -= 1) {
-    heapRoot(arr, i);
+  for (let i = Math.floor(size / 2); i >= 0; i -= 1) {
+    heapRoot(i);
   }
 
   for (let i = arr.length - 1; i > 0; i--) {
     swap(arr, 0, i);
-    arrLen--;
-    heapRoot(arr, 0);
+    size--;
+    heapRoot(0);
   }
 
   return arr;
-};
+}
 
 /*
  * @param array arr
