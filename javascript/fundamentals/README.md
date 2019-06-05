@@ -65,6 +65,38 @@ HeapSort O(nlogn) / Space - O(1)
 
 - #### heapSort
 Implement heap sort algorithm.
+<details>
+ <summary>Answer</summary>
+
+```js
+function heapSort(arr) {
+  const heapRoot = (i) => {
+    const le = 2 * i + 1;
+    const ri = 2 * i + 2;
+    let max = (le < size && arr[le] > arr[i]) ? le : i;
+    max = (ri < size && arr[ri] > arr[max]) ? ri : max;
+
+    if (max != i) {
+      swap(arr, i, max);
+      heapRoot(max);
+    }
+  }
+
+  let size = arr.length;
+  for (let i = Math.floor(size / 2); i >= 0; i -= 1) {
+    heapRoot(i);
+  }
+
+  for (let i = arr.length - 1; i > 0; i--) {
+    swap(arr, 0, i); //Array swap by keyA & keyB
+    size--;
+    heapRoot(0);
+  }
+  return arr;
+}
+```
+
+</details>
 
 - #### mergeSort
 Implement merge sort algorithm.
