@@ -101,6 +101,41 @@ function heapSort(arr) {
 - #### mergeSort
 Implement merge sort algorithm.
 
+<details>
+ <summary>Answer</summary>
+
+```js
+const mergeSort = (arr) => {
+  if (arr.length < 2) {
+    return arr;
+  }
+
+  const mid = parseInt(arr.length / 2),
+  le = arr.slice(0, mid),
+  ri = arr.slice(mid, arr.length);
+  return recurstionMerge(mergeSort(le), mergeSort(ri));
+}
+
+const recurstionMerge = (le, ri) => {
+  const res = [];
+
+  while(le.length && ri.length) {
+    res.push(le[0] < ri[0] ? le.shift() : ri.shift());
+  }
+
+  while(le.length) {
+    res.push(le.shift());
+  }
+
+  while(ri.length) {
+    res.push(ri.shift());
+  }
+  return res;
+}
+
+```
+</details>
+
 - #### quickSort
 Implement quick sort algorithm.
 
