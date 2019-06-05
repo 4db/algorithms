@@ -15,18 +15,11 @@ function heapSort(arr) {
    *
    * @param number i
    */
-  const heapRoot = function (i) {
-    let max   = i;
-    const left  = 2 * i + 1;
-    const right = 2 * i + 2;
-
-    if (left < size && arr[left] > arr[max]) {
-      max = left;
-    }
-
-    if (right < size && arr[right] > arr[max]) {
-      max = right;
-    }
+  const heapRoot = (i) => {
+    const le = 2 * i + 1;
+    const ri = 2 * i + 2;
+    let max = (le < size && arr[le] > arr[i]) ? le : i;
+    max = (ri < size && arr[ri] > arr[max]) ? ri : max;
 
     if (max != i) {
       swap(arr, i, max);
@@ -95,5 +88,6 @@ it('should sort negative elements',
 
 it('should sort negative elements with duplicate elements',
   [12, 12, 23, 4 , 6, 6, 10, -35, 28], [-35, 4, 6, 6, 10, 12, 12, 23, 28]);
+
 it('should sort same elements',
   [12, 12, 12, 12, 12], [12, 12, 12, 12, 12]);
