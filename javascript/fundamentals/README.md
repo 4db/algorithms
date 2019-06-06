@@ -1,3 +1,8 @@
+# Big-O in JavaScript
+*A mostly space and time Big-O complexities of common algorithms used in Computer Science with JavaScript examples*
+
+> **Note**: this guide assumes you are using JavaScript, and requires that you need worst case Time and Space complexity of algorithm. I've interviewed at several Silicon Valley startups, and also some bigger companies, like Google, Facebook, Microsoft, and Uber, and created JavaScript cheat sheet for main algorithms topics.
+
 ### General
 
 Write Big-O functions with analyzing algorithms from O(1) to O(n!) with name and example:
