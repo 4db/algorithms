@@ -1,9 +1,22 @@
 # Big-O in JavaScript
-*A mostly space and time Big-O complexities of common algorithms used in Computer Science with JavaScript examples*
+*A mostly Javascript code examples implementation, space, and time Big-O complexities of common algorithms used in Computer Science*
 
-> **Note**: this guide assumes you are using JavaScript, and requires that you need worst case Time and Space complexity of algorithm. I've interviewed at several Silicon Valley startups, and also some bigger companies, like Google, Facebook, Microsoft, and Uber, and created JavaScript cheat sheet for main algorithms topics.
+> **Note**: this guide assumes you are using JavaScript, and requires that you need code examples of worst case Time and Space complexity of algorithms. I've interviewed at several Silicon Valley companies, and created cheat sheet for main algorithms topics with Javascript code.
 
-### General
+### Table of Contents
+
+  1. [BigO Analyzing](#bigo-analyzing)
+  1. [Array Sorting](#array-sorting)
+  1. [Greedy Algo](#greedy-algo)
+  1. [Dynamic programming](#dynamic-programming)
+  1. [Stacks and Queues](#stacks-and-queues)
+  1. [LinkedList](#linkedlist)
+  1. [Graph, DFS and BFS](#graph-dfs-and-bfs)
+  1. [Tree traversal](#tree-traversal)
+  1. [Binary Search](#binary-search)
+  1. [Heap](#heap)
+
+### BigO Analyzing
 
 Write Big-O functions with analyzing algorithms from O(1) to O(n!) with name and example:
 
@@ -42,7 +55,7 @@ O(n!) - factorial time: Solving the travelling salesman problem via brute-force 
 
 </details>
 
-### I Array Sorting(5/5)
+### Array Sorting
 
 - #### Quicksort / MergeSort
 Describe worst time and space complexity.
@@ -191,7 +204,9 @@ function getPivot(arr, le, ri) {
 
 </details>
 
-### II Dynamic programming/Greedy Algo/Math(15/2)
+### Greedy Algo
+
+### Dynamic programming
 
 - #### 509. Fibonacci Number
 Implement function getFibonacciNumber(N). Describe time and space complexity.
@@ -202,7 +217,7 @@ Suppose an array sorted in ascending order is rotated at some pivot unknown to y
 - #### Min size sub array
 https://www.programcreek.com/2014/05/leetcode-minimum-size-subarray-sum-java
 
-### III Stack/Queue(5/5)
+### Stacks and Queues
 
 - #### Write isValid function
 Given a string containing just the characters '(', ')', '[' and ']', determine if the input string is valid.
@@ -426,7 +441,7 @@ class StackInTwoQueues {
 </details>
 
 
-### IV LinkedList(7/7)
+### LinkedList
 
 - #### Merge two sorted linked lists
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -487,7 +502,7 @@ class Node() {
 - #### 1_5_palindrome_linked_list.js
 - #### 1_6_remove_dublicates_from_sorted_list.js
 
-### V Graph/DFS/BFS(6/6)
+### Graph, DFS and BFS
 
 - #### Representations of graphs
 Given an adjacency-list representation of a directed graph, how long does it take to compute the out-degree of every vertex? How long does it take to compute the in-degrees?
@@ -502,9 +517,9 @@ Implement DFS. Describe time and space complexity and difference between BFS.
 - #### BFS iteration
 Implement BFS. Describe time and space complexity and difference between DFS.
 
-### VI Tree traversal(20/1)
+### Tree traversal
 - #### convert_tree_to_arr.js
-### VII Binary Search(20/0)
+### Binary Search
 - #### Binary tree search operation.
 
 What time complexity for complete binary tree? <br/>
@@ -637,6 +652,6 @@ Draw binary search trees of height 2, 3, 4, 5, and 6 on the set of keys {1, 4, 5
 ```
 
 </details>
-  
-### VII Heap(5/0)
-- #### 1_1_find_min_max_in_rotated_arr.js
+
+### Heap
+- 1_1_find_min_max_in_rotated_arr.js
