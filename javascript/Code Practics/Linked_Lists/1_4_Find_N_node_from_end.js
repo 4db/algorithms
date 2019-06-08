@@ -1,10 +1,12 @@
-/*
- * @param {Node|null} nextNode
- * @param {value} value
- */
-function Node(nextNode, value) {
-  this.next = nextNode;
-  this.value = value;
+class Node {
+  /*
+   * @param {Node|null} nextNode
+   * @param {value} value
+   */
+  constructor(nextNode, value) {
+    this.next = nextNode;
+    this.value = value;
+  }
 }
 
 /*
