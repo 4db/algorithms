@@ -494,13 +494,206 @@ class Node() {
 
 </details>
 
+- #### Swap Nodes in Pairs
+Given a linked list, swap every two adjacent nodes and return its head.
+You may not modify the values in the list's nodes, only nodes itself may be changed.
 
-- #### 1_1_Swap_nodes_in_pairs.js
-- #### 1_2_Odd_Even_LinkedList.js
-- #### 1_3_middle_of_linked_list.js
-- #### 1_4_Find_N_node_from_end.js
-- #### 1_5_palindrome_linked_list.js
-- #### 1_6_remove_dublicates_from_sorted_list.js
+<details>
+ <summary>Answer</summary>
+  
+```js
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+function swapPairs(head) {
+  const resHead = {val: -1, next: null};
+  let runner = resHead;
+  resHead.next = head;
+
+  while (runner.next !== null && runner.next.next !== null) {
+    runner = swap(runner, runner.next, runner.next.next);
+  }
+  return resHead.next;
+}
+
+/*
+ * @param {ListNode} head
+ * @param {ListNode} node1
+ * @param {ListNode} node2
+ * @return {listNode}
+ */
+function swap(head, node1, node2) {
+  const tail = node2.next;
+  head.next = node2;
+  node2.next = node1;
+  node1.next = tail;
+  return node1;
+}
+```
+
+</details>
+
+- #### Swap Nodes in Pairs
+Given a linked list, swap every two adjacent nodes and return its head.
+You may not modify the values in the list's nodes, only nodes itself may be changed.
+
+- #### Odd Even Linked List
+Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+
+<details>
+ <summary>Answer</summary>
+
+```js
+/*
+* Definition for singly-linked list.
+* function ListNode(val) {
+*  this.val = val;
+*  this.next = null;
+* }
+*
+* @param {ListNode} head
+* @return {ListNode}
+*/
+function oddEvenList(head) {
+ if (head === null) {
+    return null;
+  }
+  let odd = head;
+  let even = head.next;
+  let evenHead = even;
+  while (even !== null && even.next !== null) {
+    odd.next = even.next;
+    odd = odd.next;
+    even.next = odd.next;
+    even = even.next;
+  }
+  odd.next = evenHead;
+  return head;
+}
+```
+</details>
+
+- #### Middle of the Linked List
+Given a non-empty, singly linked list with head node head, return a middle node of linked list.
+If there are two middle nodes, return the second middle node.
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function middleNode(head) {
+  let fast = head;
+  let slow = head;
+  while (fast !== null && fast.next !== null) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  return slow;
+}
+```
+</details>
+
+- #### Find N node
+Implement function to find a N node from the end of Linked List.
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function getNElValue(frontNode, target) {
+  if (target < 1) {
+    return -1;
+  }
+
+  let count = 1;
+  let current = frontNode.next;
+  let out = null
+
+  while (current.next) {
+    if (count === target) {
+      out = frontNode.next;
+    }
+    current = current.next;
+    count++;
+
+    if (out !== null) {
+      out = out.next;
+    }
+  }
+  
+  return out === null ? -1 : out.value;  
+}
+```
+</details>
+
+- #### Palindrome Linked List
+Implement function to check is Linked List palindrome.
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function isPalindrome(head) {
+  if (head === null || head.next === null) {
+    return true;
+  }
+  let walker = head;
+  let runner = head;
+  let pre = null;
+  while (runner !== null && runner.next !== null) {
+    // move runner first, otherwise the next of the head will be already changed
+    runner = runner.next.next;
+    // reverse linked list
+    nextWalker = walker.next;
+    walker.next = pre;
+    pre = walker;
+    walker = nextWalker;
+  }
+
+  // after this the pre would be the head of our first half, 
+  // while walker at the head of second half odd number length
+  if (runner !== null) {
+    walker = walker.next;
+  }
+  while (pre !== null && walker !== null) {
+    if (pre.val !== walker.val) {
+      return false;
+    }
+    pre = pre.next;
+    walker = walker.next;
+  }
+  return true;
+}
+```
+</details>
+
+- #### Remove Duplicates from Sorted Linked List
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function deleteDuplicates(head) {
+  let current = head;
+
+  while (current && current.next) {
+    if (current.val === current.next.val) {
+      current.next = current.next.next;
+    } else {
+      current = current.next;
+    }
+  }
+  return head;
+}
+```
+</details>
 
 ### Graph, DFS and BFS
 
