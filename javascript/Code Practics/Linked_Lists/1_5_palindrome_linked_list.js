@@ -1,3 +1,14 @@
+class Node() {
+  /*
+   * @param {Node|null} nextNode
+   * @param {val} val
+   */
+  constructor(nextNode, val) {
+    this.next = nextNode;
+    this.val = val;
+  }
+}
+
 /**
  * 234. Palindrome Linked List
  * @param {ListNode} head
@@ -10,7 +21,7 @@ function isPalindrome(head) {
   let walker = head;
   let runner = head;
   let pre = null;
-  while(runner !== null && runner.next !== null) {
+  while (runner !== null && runner.next !== null) {
     // move runner first, otherwise the next of the head will be already changed
     runner = runner.next.next;
     // reverse linked list
@@ -22,7 +33,7 @@ function isPalindrome(head) {
 
   // after this the pre would be the head of our first half, 
   // while walker at the head of second half odd number length
-  if (runner != null) {
+  if (runner !== null) {
     walker = walker.next;
   }
   while (pre !== null && walker !== null) {
@@ -33,15 +44,6 @@ function isPalindrome(head) {
     walker = walker.next;
   }
   return true;
-}
-
-/*
- * @param {Node|null} nextNode
- * @param {val} val
- */
-function Node(nextNode, val) {
-  this.next = nextNode;
-  this.val = val;
 }
 
 const TEST_LINKED_LIST_PALINDROME = new Node(null, 1);
