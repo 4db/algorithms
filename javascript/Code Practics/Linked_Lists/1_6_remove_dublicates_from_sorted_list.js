@@ -19,13 +19,15 @@ function deleteDuplicates(head) {
   return head;
 }
 
-/*
- * @param {Node|null} nextNode
- * @param {val} val
- */
-function Node(nextNode, val) {
-  this.next = nextNode;
-  this.val = val;
+class Node {
+  /*
+   * @param {Node|null} nextNode
+   * @param {val} val
+   */
+  constructor(nextNode, val) {
+    this.next = nextNode;
+    this.val = val;
+  }
 }
 
 const TEST_LINKED_LIST = new Node(null, 1);
