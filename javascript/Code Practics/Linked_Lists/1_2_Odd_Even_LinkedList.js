@@ -8,8 +8,7 @@
 *  this.val = val;
 *  this.next = null;
 * }
-*/
-/**
+*
 * @param {ListNode} head
 * @return {ListNode}
 */
@@ -17,10 +16,10 @@ function oddEvenList(head) {
  if (head === null) {
     return null;
   }
-  var odd = head;
-  var even = head.next;
-  var evenHead = even;
-  while (even != null && even.next != null) {
+  let odd = head;
+  let even = head.next;
+  let evenHead = even;
+  while (even !== null && even.next !== null) {
     odd.next = even.next;
     odd = odd.next;
     even.next = odd.next;
@@ -28,4 +27,4 @@ function oddEvenList(head) {
   }
   odd.next = evenHead;
   return head;
-};
+}
