@@ -745,8 +745,10 @@ What time complexit for randomly build binary tree? <br/>
  Search operation O(h), where h is height of the tree <br/>
  Find min / Find max - O(h)
 </details>   
+
 - #### Draw binary search trees.
 Draw binary search trees of height 2, 3, 4, 5, and 6 on the set of keys {1, 4, 5, 10, 16, 17, 21}.
+
 <details>
  <summary>Answer height 2</summary>
 
