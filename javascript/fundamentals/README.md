@@ -820,9 +820,11 @@ Draw binary search trees of height 2, 3, 4, 5, and 6 on the set of keys {1, 4, 5
  <summary>Answer</summary>
 Time - O(n log(n)) </br>
 Space - O(1)
+</details>
 
 - #### heapSort
 Implement heap sort algorithm.
+
 <details>
  <summary>Answer</summary>
 
