@@ -676,7 +676,79 @@ Implement DFS. Describe time and space complexity and difference between BFS.
 Implement BFS. Describe time and space complexity and difference between DFS.
 
 ### Tree traversal
-- #### convert_tree_to_arr.js
+- #### Convert Tree to Array
+
+
+<details>
+ <summary>Test Case Example</summary>
+  
+```js
+console.log('It should return [1,2,3,4,5,6,7,8]',
+convertTreeToArr({
+  a : 1,
+  b : 2,
+  c : {
+    a : 3,
+    b : 4,
+    c : 5,
+    d : 6,
+    e : {
+      a : 7,
+      b : 8
+    }
+  }
+}).join('') === [1,2,3,4,5,6,7,8].join('') ? 'PASS' : 'FAIL');
+
+```
+</details>
+
+<details>
+ <summary>Iterative Answer</summary>
+  
+```js
+function convertTreeToArr(tree) {
+  const arr = [];
+  const queue = [];
+  queue.push(tree);
+
+  while(queue.length) {
+    const obj = queue.shift();
+    for (let k in obj) {
+      if (typeof obj[k] === 'object') {
+        queue.push(obj[k]);
+      }
+      else {
+        arr.push(obj[k]);
+      }
+    }
+  }
+  return arr;
+}
+```
+
+</details>
+
+<details>
+ <summary>Recursive Answer</summary>
+  
+```js
+function convertTreeToArrRec(tree) {
+  let arr = [];
+
+  for (let k in tree) {
+    if (typeof tree[k] === 'object') {
+      arr = arr.concat(convertTreeToArrRec(tree[k]));
+    }
+    else {
+      arr.push(tree[k]);
+    }
+  }
+  return arr;
+}
+```
+
+</details>
+
 ### Binary Search
 - #### Binary tree search operation.
 
