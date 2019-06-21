@@ -57,27 +57,19 @@ O(n!) - factorial time: Solving the travelling salesman problem via brute-force 
 
 ### Array Sorting
 
-- #### Quicksort / MergeSort
-Describe worst time and space complexity.
+- #### Quicksort / MergeSort / Counting Sort / HeapSort
+Describe worst time, space complexity and <b>stablility</b>.
+
+<b>Stable</b> sorting algorithms maintain the relative order of records with equal keys (i.e. values). That is, a sorting algorithm is stable if whenever there are two records R and S with the same key and with R appearing before S in the original list, R will appear before S in the sorted list.
 
 <details>
  <summary>Answer</summary>
 
 ```
-Quicksort O(n^2) / Space - O(logn)
-Mergesort O(nlogn) / Space - O(n)
-```
-</details>
-
-- #### Counting Sort / HeapSort
-Describe worst time and space complexity
-
-<details>
- <summary>Answer</summary>
-
-```
-Counting O(n+k) / Space - O(k)
-HeapSort O(nlogn) / Space - O(1)
+Quicksort O(n^2) / Space - O(logn) / Typical in-place sort is not stable; stable versions exist.
+Mergesort O(nlogn) / Space - O(n) / Stable
+Counting O(n+k) / Space - O(k) / Stable
+HeapSort O(nlogn) / Space - O(1) / not stable
 ```
 </details>
 
