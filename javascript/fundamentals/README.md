@@ -341,12 +341,6 @@ class TwoStackInArr {
   }
 }
 
-let testStack = new TwoStackInArr(10);
-[1,2,3,4,5,6,7,8,9,10].forEach((i, v) => testStack.pushFirst(v));
-console.log('It should return correct top indexes:', testStack.topFirst === 9 && testStack.topSecond === 10 ? 'PASS' : 'FAIL');
-console.log('It should return StackOverflow message:', testStack.pushFirst(11) === 'Stack overflow' ? 'PASS' : 'FAIL');
-console.log('It should return StackUnderflow message:', testStack.popSecond() === 'Stack Underflow' ? 'PASS' : 'FAIL');
-
 ```
 </details>
 
