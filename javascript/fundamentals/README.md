@@ -270,14 +270,13 @@ function isValid(str) {
 
 - #### Implement two stacks in one array
 A [1 . . n] in such a way that neither stack overflows unless
-the total number of elements in both stacks together is n. The PUSH and POP operations should runin O(1) time.
+the total number of elements in both stacks together is n. The PUSH and POP operations should run in O(1) time.
 
 <details>
  <summary>Answer</summary>
  
 ```js
 
-// O(1) time complexity for push and pop operations
 class TwoStackInArr {
   /**
    * @param {array} size
@@ -398,7 +397,6 @@ class QueueInTwoStacks {
 - #### Show how to implement a stack using two queues.
 Analyze the running time of the stack operations.
 
-
 <details>
  <summary>Answer</summary>
 
@@ -509,12 +507,14 @@ You may not modify the values in the list's nodes, only nodes itself may be chan
  <summary>Answer</summary>
   
 ```js
+/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
  *     this.next = null;
  * }
  */
+
 /**
  * @param {ListNode} head
  * @return {ListNode}
