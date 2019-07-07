@@ -1,5 +1,5 @@
 # Big-O in JavaScript
-*A mostly Javascript code examples implementation, space, and time Big-O complexities of common algorithms used in Computer Science*
+*A mostly Javascript code examples implementation, space, and time Big-O complexities of common algorithms used in Computer Science.*
 
 > **Note**: this guide assumes you are using JavaScript, and requires that you need code examples of worst case Time and Space complexity of algorithms. I've interviewed at several Silicon Valley companies, and created cheat sheet for main algorithms topics with Javascript code.
 
@@ -218,6 +218,28 @@ function sortByDistinctCollection(arr, disc) {
 </details>
 
 ### Greedy Algo
+Implement Greedy Algorithm for maximum daily profit from stock sale. Example stocks input [18, 17, 13, 11, 5, 1].
+
+
+<details>
+ <summary>Answer</summary>
+
+```js
+function getMaxProfitFromStockPrices(pricesArr) {
+  let minPrice = pricesArr[0];
+  let maxProfit = pricesArr[1] - pricesArr[0];
+  let minIndex = 0
+  for (let i = 1; i < pricesArr.length; i++) {
+    if ((pricesArr[i] - minPrice) > maxProfit) {
+      maxProfit = pricesArr[i] - minPrice;
+      minPrice = pricesArr[i];
+    }
+  }
+  return maxProfit;
+}
+```
+
+</details>
 
 ### Dynamic programming
 
@@ -444,7 +466,6 @@ class StackInTwoQueues {
 ```
 
 </details>
-
 
 ### LinkedList
 
@@ -720,7 +741,6 @@ Implement BFS. Describe time and space complexity and difference between DFS.
 ### Tree traversal
 - #### Convert Tree to Array
 
-
 <details>
  <summary>Test Case Example</summary>
   
@@ -936,7 +956,7 @@ Time - O(n log(n)) </br>
 Space - O(1)
 </details>
 
-- #### heapSort
+- #### Implement HeapSort
 Implement heap sort algorithm.
 
 <details>
