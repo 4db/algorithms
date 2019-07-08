@@ -73,7 +73,7 @@ HeapSort O(nlogn) / Space - O(1) / not stable
 ```
 </details>
 
-- #### mergeSort
+- #### Merge Sort
 Implement merge sort algorithm.
 
 <details>
@@ -111,7 +111,7 @@ const recurstionMerge = (le, ri) => {
 ```
 </details>
 
-- #### quickSort
+- #### Quick Sort
 Implement quick sort algorithm.
 
 
@@ -161,7 +161,7 @@ function getPivot(arr, le, ri) {
 
 </details>
 
-- #### countingSort
+- #### Counting Sort
 Implement counting sort algorithm.
 
 <details>
@@ -245,6 +245,35 @@ function getMaxProfitFromStockPrices(pricesArr) {
 
 - #### 509. Fibonacci Number
 Implement function getFibonacciNumber(N). Describe time and space complexity.
+
+<details>
+ <summary>Answer</summary>
+
+```js
+
+const memo = {};
+
+function getFibonacciNumberRecursive(N) {
+  if (N <= 2) {
+    return N < 1 ? 0 : 1;
+  }
+  if (!memo[N]) {
+    memo[N] = getFibonacciNumberRecursive(N - 1) + getFibonacciNumberRecursive(N - 2);
+  }
+  return memo[N];
+}
+
+// or 
+
+function getFibonacciNumberTailRecursion (n, a = 0, b = 1){
+  if (n > 0) {
+    return getFibonacciNumberTailRecursion(n - 1, b, a + b);
+  }
+  return a;
+}
+```
+
+</details>
 
 - ####  153. Find Minimum|Maximum in Rotated Sorted Array.
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
