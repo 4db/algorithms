@@ -41,7 +41,6 @@ function setChilds(root, arr, adList) {
   return root;
 }
 
-// TODO add tests
 const arr = [
   { "id":4, "parent":2 },
   { "id":1, "parent":null },
@@ -49,4 +48,5 @@ const arr = [
   { "id":5, "parent":3 },
   { "id":3, "parent":1 },
 ];
-getOut(arr);
+const expected = '{"id":1,"parent":null,"child":[{"id":2,"parent":1,"child":[{"id":4,"parent":2,"child":[]}]},{"id":3,"parent":1,"child":[{"id":5,"parent":3,"child":[]}]}]}';
+console.log('It should return expected object', JSON.stringify(getOut(arr)) === expected ? 'PASS' : 'FAIL');
