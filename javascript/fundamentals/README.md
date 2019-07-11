@@ -275,12 +275,6 @@ function getFibonacciNumberTailRecursion (n, a = 0, b = 1){
 
 </details>
 
-- ####  153. Find Minimum|Maximum in Rotated Sorted Array.
-Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
-
-- #### Min size sub array
-https://www.programcreek.com/2014/05/leetcode-minimum-size-subarray-sum-java
-
 ### Stacks and Queues
 
 - #### Write isValid function
