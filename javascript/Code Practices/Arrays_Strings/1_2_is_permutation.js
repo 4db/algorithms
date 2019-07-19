@@ -83,7 +83,7 @@ function isPermutationTradeOff(str1, str2) {
     console.log(
       test + description + ': ',
         isPermutationTradeOff(str1, str2) === expect 
-        ? 
+        ?
         'PASS'
         : 'FAIL'
     );
