@@ -1005,12 +1005,19 @@ function heapSort(arr) {
   }
 
   for (let i = arr.length - 1; i > 0; i--) {
-    swap(arr, 0, i); //Array swap by keyA & keyB
+    swap(arr, 0, i);
     size--;
     heapRoot(0);
   }
   return arr;
 }
+
+function swap(arr, keyA, keyB) {
+  const temp = arr[keyA];
+  arr[keyA] = arr[keyB];
+  arr[keyB] = temp;
+}
+
 ```
 
 </details>
