@@ -43,14 +43,25 @@ O(n!)
  
 ``` 
 O(1) - constant time, example: Calcoperation; Determining if a binary number is even or odd;
+
 O(log(n)) - logarithmic time, example: finding an item in a sorted array with a binary search;
-O( log(n) ^ c ) - polylogarithmic time, example: Matrix chain ordering can be solved in polylogarithmic time on a parallel random-access machine;
-O(n) - linear time, example: 	Finding an item in an unsorted list or in an unsorted array;
+
+O( log(n) ^ c ) - polylogarithmic time, example: Matrix chain ordering can be solved
+in polylogarithmic time on a parallel random-access machine;
+
+O(n) - linear time, example: Finding an item in an unsorted list or in an unsorted array;
+
 O(nlogn) - linearithmic, example: Heapsort, Mergesort;
+
 O(n^2) - quadratic time, example: worst case Quick Sort;
+
 O(n^c) - polynomial time, example: Tree-adjoining grammar parsing; maximum matching for bipartite graphs;
-O(c^n) - exponential time, example: Finding the (exact) solution to the travelling salesman problem using dynamic programming, or simple Fibonacci sequence;
+
+O(c^n) - exponential time, example: Finding the (exact) solution to the travelling salesman problem using
+dynamic programming, or simple Fibonacci sequence;
+
 O(n!) - factorial time: Solving the travelling salesman problem via brute-force search;
+
 ```
 
 </details>
