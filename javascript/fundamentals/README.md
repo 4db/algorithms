@@ -1,5 +1,5 @@
-# Big-O in JavaScript
-*A mostly Javascript code examples implementation, space, and time Big-O complexities of common algorithms used in Computer Science.*
+# Fundamental Big-O Quiz in JavaScript
+*A mostly code examples implementation, space, and time Big-O complexities of common algorithms used in Computer Science. Implemented in Quiz format*
 
 > **Note**: this guide assumes you are using JavaScript, and requires that you need code examples of worst case Time and Space complexity of algorithms. I've interviewed at several Silicon Valley companies, and created cheat sheet for main algorithms topics with Javascript code.
 
