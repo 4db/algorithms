@@ -1,7 +1,7 @@
 // https://leetcode.com/problems/serialize-and-deserialize-binary-tree
 
 /**
- * @param {arring|number} val
+ * @param {array|number} val
  */
 function TreeNode(val) {
   this.val = val;
@@ -10,27 +10,26 @@ function TreeNode(val) {
 }
 
 /**
- * Encodes a tree to a single arring.
+ * Encodes a tree to a single array.
  *
  * @param {TreeNode} root
- * @return {arring}
+ * @return {array}
  */
 function serialize(root) {
-  let queue = [];
-  let response = [];
-  queue.push(root);
-  while(queue.length) {
-    const tmpNode = queue.pop();
-    if (tmpNode) {
-      response.push(tmpNode.val);
-      queue.push(tmpNode.right);
-      queue.push(tmpNode.left);
-      continue;
+  const arr = [];
+  const serializeRec = function(node) {
+    if (node === null) {
+      arr.push(null);
     }
-    response.push(null);
+    else {
+      arr.push(node.val);
+      serializeRec(node.left);
+      serializeRec(node.right);
+    }
   }
-  return response;
-};
+  serializeRec(root);
+  return arr;
+}
 
 /**
  * Decodes your encoded data to tree.
@@ -63,16 +62,16 @@ function deserializeRec(arr) {
   return rootNode;
 }
 
-/* TODO add test cases
-console.log(deserialize([1,2,3,null,null,4,5]));
-
-You may serialize the following tree:
-
+/*
+Test case: You may serialize the following tree:
     1
    / \
   2   3
      / \
     4   5
-
-as "[1,2,3,null,null,4,5]"
+as "[1,2,3,null,null,4,5, null, null, null, null]"
 */
+const expectOutput = JSON.stringify([1, 2, 3, null, null, 4, 5, null, null, null, null]);
+const outcomeOutput = JSON.stringify(serialize(deserialize([1,2,3,null,null,4,5])));
+console.log(
+  'It should deserialize and serialize', outcomeOutput === expectOutput ? 'PASS' : 'FAIL');
