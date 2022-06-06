@@ -13,30 +13,20 @@ public:
         return - 1;
     }
 
-    // BST logn.
-    int findDuplicateBST(vector<int>& nums) {
-        int low = 1, high = nums.size() - 1, count_elements;
-        
-        while (low <=  high) {
-            int mid = low + (high - low) / 2;
-            count_elements = 0;
+    // Fast and Slow, O(n).
+    int findDuplicateFastAndSlow(vector<int>& nums) {
+		int slow = nums[0];
+		int fast = nums[nums[0]];
+		while (slow != fast) {
+			slow = nums[slow];
+			fast = nums[nums[fast]];
+		}
 
-            // count_elements number less than equal to mid.
-            for(int n : nums) {
-                if (n <= mid) {
-                    ++count_elements;
-                }
-            }
-
-            // binary search on left
-            if (count_elements <= mid) {
-                low = mid + 1;
-            }
-            // binary search on right
-            else {
-                high = mid - 1;
-            }
-        }
-        return low;
+		fast = 0;
+		while (fast != slow) {
+			fast = nums[fast];
+			slow = nums[slow];
+		}
+		return slow;
     }
 };
