@@ -28,5 +28,9 @@ private:
         level++;
         dfs(root->right, output, level);
         dfs(root->left, output, level);
+        
+        // If need left side, just swap right => left:
+        // dfs(root->left, output, level);
+        // dfs(root->right, output, level);
     }
 };
