@@ -13,19 +13,20 @@
 class Solution {
 public:
     vector<int> rightSideView(TreeNode* root) {
-        vector<int> view;
-        rightView(root, view, 0);
-        return view;
+        std::vector<int> output;
+        dfs(root, output, 0);
+        return output;
     }
 private:
-    void rightView(TreeNode* root, vector<int>& view, int level) {
+    void dfs(TreeNode* root, std::vector<int>& output, int level) {
         if (!root) {
             return;
         }
-        if (view.size() == level) {
-            view.push_back(root -> val);
+        if (output.size() == level) {
+            output.push_back(root->val);
         }
-        rightView(root -> right, view, level + 1);
-        rightView(root -> left, view, level + 1);
+        level++;
+        dfs(root->right, output, level);
+        dfs(root->left, output, level);
     }
 };
