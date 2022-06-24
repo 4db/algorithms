@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+    std::vector<std::vector<int>> levelOrder(TreeNode* root) {
         if (!root) {
             return {};
         }
-        vector<int> row;
-        vector<vector<int> > result;
-        queue<TreeNode*> q;
+        std::vector<int> row;
+        std::vector<vector<int>> result;
+        std::queue<TreeNode*> q;
         q.push(root);
         int count = 1;
 
