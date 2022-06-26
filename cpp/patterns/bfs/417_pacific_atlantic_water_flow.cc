@@ -1,7 +1,7 @@
 class Solution {
 public:
     std::vector<std::vector<int>> pacificAtlantic(std::vector<std::vector<int>>& grid) {
-        if(grid.empty()) {
+        if (grid.empty()) {
             return ans;
         }
         rows_size = size(grid);
@@ -10,15 +10,20 @@ public:
         atlantic_grid = pacific_grid;
 
         // For loop all rows, for pacific bfs left cells, for atlantic bfs right cells, e.x:
-        // P,*, A
-        // P,*, A
-        // P,*, A
+        // P,*,*,A
+        // P,*,*,A
+        // P,*,*,A
+        // P,*,*,A
         for (int i = 0; i < rows_size; i++) {
             bfs(grid, pacific_grid, i, 0);
             bfs(grid, atlantic_grid, i, column_size - 1);
         }
 
         // For loop all columns, for pacific bfs top cells, for atlantic bfs bottom:
+        // P,P,P,P
+        // *,*,*,*
+        // *,*,*,*
+        // A,A,A,A
         for (int i = 0; i < column_size; i++) {
             bfs(grid, pacific_grid, 0, i);
             bfs(grid, atlantic_grid, rows_size - 1, i);
