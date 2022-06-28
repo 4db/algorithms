@@ -22,7 +22,7 @@ public:
 
     // min-heap using priority_queue
     int findKthLargest(vector<int>& nums, int k) {
-        // O(n)
+        // O(nlogk)
         // arguments:
         // - T - The type of the stored elements.
         // - Container	-	The type of the underlying container to use to store the elements. 
@@ -40,7 +40,7 @@ public:
         return pq.top();
     }
   
-    //  PriorityQueue from a collection, even an unsorted one, is O(n).
+    //  PriorityQueue from a collection, even an unsorted one, is O(nlogk).
     int findKthLargest(vector<int>& nums, int k) {
         // O(n)
         std::priority_queue<int> pq(nums.begin(), nums.end());
