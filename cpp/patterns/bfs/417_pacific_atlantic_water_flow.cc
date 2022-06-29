@@ -4,8 +4,8 @@ public:
         if (grid.empty()) {
             return ans;
         }
-        rows_size = size(grid);
-        column_size = size(grid[0]);
+        rows_size = std::size(grid);
+        column_size = std::size(grid[0]);
         pacific_grid = std::vector<std::vector<bool>>(rows_size, std::vector<bool>(column_size, false));
         atlantic_grid = pacific_grid;
 
