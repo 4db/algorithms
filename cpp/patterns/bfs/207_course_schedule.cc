@@ -4,8 +4,7 @@ public:
         graph g = buildGraph(numCourses, prerequisites);
         std::vector<int> degrees = computeIndegrees(g);
         for (int i = 0; i < numCourses; i++) {
-            int j = 0;
-            for (; j < numCourses; j++) {
+            for (int j = 0; j < numCourses; j++) {
                 if (!degrees[j]) {
                     break;
                 }
