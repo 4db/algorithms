@@ -11,14 +11,14 @@
  */
 class Solution {
 public:
-    vector<vector<int>> pathSum(TreeNode* root, int sum) {
-        vector<vector<int>> ans;
-        vector<int> curr;
+    std::vector<std::vector<int>> pathSum(TreeNode* root, int sum) {
+        std::vector<std::vector<int>> ans;
+        std::vector<int> curr;
         dfs(root, sum, curr, ans);
         return ans;
     }
 private:
-    void dfs(TreeNode* root, int sum, vector<int>& curr, vector<vector<int>>& ans) {
+    void dfs(TreeNode* root, int sum, std::vector<int>& curr, std::vector<std::vector<int>>& ans) {
         if (!root) {
           return;
         }
