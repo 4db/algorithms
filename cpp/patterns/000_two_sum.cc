@@ -4,22 +4,21 @@
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 class Solution {
-public:
-    vector<int> twoSum(vector<int> &numbers, int target) {
-        //Key is the number and value is its index in the vector.
-        unordered_map<int, int> hash;
+    public:
+        std::vector<int> twoSum(std::vector<int> &numbers, int target) {
+            // Key is the number and value is its index in the vector.
+            std::unordered_map<int, int> hash;
+            std::vector<int> result;
+            for (int i = 0; i < numbers.size(); i++) {
+                int numberToFind = target - numbers[i];
 
-        for (int i = 0; i < numbers.size(); i++) {
-            int numberToFind = target - numbers[i];
+                if (hash.find(numberToFind) != hash.end()) {
+                 return std::vector<int> {hash[numberToFind], i};
+                }
 
-            //if numberToFind is found in map, return them.
-            if (hash.find(numberToFind) != hash.end()) {
-             return vector<int> {hash[numberToFind], i};
+                // Number was not found. Put it in the map.
+                hash[numbers[i]] = i;
             }
-
-            //number was not found. Put it in the map.
-            hash[numbers[i]] = i;
+            return std::vector<int> {};
         }
-        return vector<int> {};
-    }
 };
