@@ -4,7 +4,7 @@ class Solution {
 public:
     // std::unordered_set(On) faster then std::set(OlogN).
     bool containsDublicateOneLine(vector<int>& nums) {
-      return nums.size() > unordered_set<int>(nums.begin(), nums.end()).size();
+      return nums.size() > std::unordered_set<int>(nums.begin(), nums.end()).size();
     }
     // Faster solution without extra memory.
     bool containsDuplicate(vector<int>& nums) {      
