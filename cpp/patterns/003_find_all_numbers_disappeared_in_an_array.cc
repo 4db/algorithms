@@ -7,16 +7,33 @@
 
 class Solution {
 public:
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
+    vector<int> findDisappearedNumbers(std::vector<int>& nums) {
         int len = nums.size();
-        for(int i=0; i<len; i++) {
+        for (int i=0; i < len; i++) {
             int m = abs(nums[i])-1; // index start from 0
-            nums[m] = nums[m]>0 ? -nums[m] : nums[m]; //Overwrite to save memory.
+            nums[m] = nums[m]>0 ? -nums[m] : nums[m]; // Overwrite to save memory.
         }
-        vector<int> res;
-        for(int i = 0; i<len; i++) {
-            if(nums[i] > 0) res.push_back(i+1);
+        std::vector<int> res;
+        for (int i = 0; i < len; i++) {
+            if (nums[i] > 0) res.push_back(i+1);
         }
         return res;
+    }
+};
+
+// Not optimal solution with std::set.
+class Solution {
+public:
+    std::vector<int> findDisappearedNumbers(std::vector<int>& nums) {
+        std::vector<int> result;
+        std::set<int> s {std::begin(nums), std::end(nums)};
+        
+        for (int i = 1; i < nums.size() + 1; i++) {
+            //!s.contains(i) C++ 20
+            if (s.count(i) == 0) {
+                result.push_back(i);
+            }
+        }
+        return result;
     }
 };
