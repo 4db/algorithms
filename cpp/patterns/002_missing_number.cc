@@ -2,19 +2,19 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-      sort(nums.begin(), nums.end());
-      int left = 0;
-      int right = nums.size();
-      int mid= (left + right) / 2;
-      while(left < right) {
-          mid = (left + right) / 2;
-          if (nums[mid] > mid) {
-              right = mid;
-          }
-          else {
-              left = mid + 1;
-          }
-      }
-      return left;
+        std::sort(nums.begin(), nums.end());
+
+        int l = 0, r = nums.size(), m = (l + r) / 2;
+
+        while (l < r ) {
+            m = (l + r) / 2;
+            if (nums[m] > m) {
+                r = m;
+            }
+            else {
+                l = m + 1;
+            }
+        }
+        return l;
     }
 };
