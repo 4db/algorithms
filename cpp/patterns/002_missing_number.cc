@@ -1,7 +1,7 @@
 // Binary search solution of https://leetcode.com/problems/missing-number.
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
+    int missingNumber(std::vector<int>& nums) {
         std::sort(nums.begin(), nums.end());
 
         int l = 0, r = nums.size(), m = (l + r) / 2;
