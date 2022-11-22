@@ -6,7 +6,7 @@
 // Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
+    int maxProfit(std::vector<int>& prices) {
         int buy = INT_MAX;
         int max_profit = 0;
         for (int price : prices) {
