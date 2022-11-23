@@ -6,7 +6,7 @@
 // Explanation: [4,-1,2,1] has the largest sum = 6.
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
+    int maxSubArray(std::vector<int>& nums) {
         int max_sum = nums[0];
         int cur_sum = nums[0];
         for (int i = 1; i < int(nums.size()); i++) {
