@@ -1,7 +1,7 @@
 // Leetcode 744. Find Smallest Letter Greater Than Target.
 class Solution {
 public:
-    char nextGreatestLetter(vector<char>& letters, char target) {
+    char nextGreatestLetter(std::vector<char>& letters, char target) {
         if (letters.back() <= target) {
           return letters.front();
         }
