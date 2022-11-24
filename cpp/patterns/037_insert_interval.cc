@@ -1,8 +1,8 @@
 // Leetcode 57. Insert Interval.
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
-        vector<vector<int>> res;
+    std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals, std::vector<int>& newInterval) {
+        std::vector<std::vector<int>> res;
         size_t i = 0;
         
         // Left part (no intersection with newInterval)
