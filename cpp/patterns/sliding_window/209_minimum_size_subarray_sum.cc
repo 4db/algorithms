@@ -12,10 +12,12 @@ public:
     for (int i = 0; i < nums.size(); i++) {
         sum += nums[i];
         while (sum >= target) {
-            ans = min(ans, i + 1 - left);
-            sum -= nums[left++];
+            ans = std::min(ans, i + 1 - left);
+            left++;
+            sum -= nums[left];
         }
     }
+
     return (ans != INT_MAX) ? ans : 0;
     }
 };
