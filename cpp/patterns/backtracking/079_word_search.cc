@@ -1,4 +1,4 @@
-// Leetcode https://leetcode.com/problems/word-search/
+// Leetcode 79 https://leetcode.com/problems/word-search/
 // Time: O(4n) => O(n).
 // Space: O(1).
 class Solution {
