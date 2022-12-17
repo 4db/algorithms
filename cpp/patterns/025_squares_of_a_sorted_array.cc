@@ -1,7 +1,7 @@
 class Solution {
 public:
     // Simple solution with O(n) + O(nlogn).
-    vector<int> sortedSquares(vector<int>& nums) {
+    vector<int> sortedSquares(std::vector<int>& nums) {
        for (int i = 0; i < nums.size(); i++)  {
            const int n = abs(nums[i]);
            nums[i] = n * n;
