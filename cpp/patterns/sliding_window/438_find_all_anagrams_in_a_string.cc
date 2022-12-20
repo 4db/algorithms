@@ -5,36 +5,6 @@
 class Solution {
 public:
     std::vector<int> findAnagrams(std::string s, std::string p) {
-        std::unordered_map<char, int> map1;
-        std::vector<int> arr;
-
-        if (p.size() > s.size()) {
-            return arr;
-        }
-
-        for (int i = 0; i < p.size(); i++) {
-            map1[p[i]] += 1;
-        }
-
-        for (int i = 0; i < s.size(); i++) {
-            std::unordered_map<char, int> map2;
-            for (int j = i; j < p.size() + i; j++) {
-                map2[s[j]] += 1;
-            }
-            if (map1 == map2) {
-                arr.push_back(i);
-            }
-        }
-        return arr;
-
-    }
-};
-
-// Time complexity: O(nk) where n = size of s and k is size of substring of s
-// Memory complexity: O(k).
-class Solution {
-public:
-    std::vector<int> findAnagrams(std::string s, std::string p) {
         std::unordered_map<char, int> map1, map2;
         std::vector<int> arr;
         if (p.size() > s.size()) {
@@ -71,9 +41,9 @@ public:
 // Space Complexity = O(26) = O(1)
 class Solution {
 public:
-    std::vector<int> findAnagrams(string s, string p) {
-        int s_len = s.length();
-        int p_len = p.length();
+    std::vector<int> findAnagrams(std::string s, std::string p) {
+        int s_len = s.size();
+        int p_len = p.size();
 
         if (s.size() < p.size()) {
             return {};
