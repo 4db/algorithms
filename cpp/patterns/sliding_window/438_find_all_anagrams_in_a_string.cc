@@ -5,29 +5,29 @@
 class Solution {
 public:
     std::vector<int> findAnagrams(std::string s, std::string p) {
-        std::unordered_map<char, int> map1, map2;
+        std::unordered_map<char, int> freq_p_mp, mp;
         std::vector<int> arr;
         if (p.size() > s.size()) {
             return arr;
         }
 
         for (int i = 0; i < p.size(); i++) {
-            map1[p[i]] += 1;
-            map2[s[i]] += 1;
+            freq_p_mp[p[i]]++;
+            mp[s[i]]++;
         }
 
-        if (map1 == map2) {
+        if (freq_p_mp == mp) {
             arr.push_back(0);
         }
 
         for (int i = p.size(); i < s.size(); i++) {
-            map2[s[i]] += 1;
-            map2[s[i - p.size()]] -= 1;
-            if (map2[s[i - p.size()]] <= 0) {
-                map2.erase(s[i - p.size()]);
+            mp[s[i]]++;
+            mp[s[i - p.size()]]--;
+            if (mp[s[i - p.size()]] <= 0) {
+                mp.erase(s[i - p.size()]);
             }
 
-            if (map1 == map2) {
+            if (freq_p_mp == mp) {
                 arr.push_back(i - p.size() + 1);
             }
         }
@@ -36,9 +36,8 @@ public:
     }
 };
 
-
-// Time Complexity = O(n * 26) = O(n), n is the length of string s.
-// Space Complexity = O(26) = O(1)
+// Time Complexity = O(n * 26) = O(n), where n = size of s and 26 => abc.
+// Space Complexity = O(26) = O(1).
 class Solution {
 public:
     std::vector<int> findAnagrams(std::string s, std::string p) {
