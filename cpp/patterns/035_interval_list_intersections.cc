@@ -1,8 +1,8 @@
 // Leetcode 986. Interval List Intersections.
 class Solution {
 public:
-    vector<vector<int>> intervalIntersection(vector<vector<int>>& firstList, vector<vector<int>>& secondList) {
-        vector<vector<int>> output;
+    std::vector<std::vector<int>> intervalIntersection(std::vector<std::vector<int>>& firstList, std::vector<std::vector<int>>& secondList) {
+        std::vector<vector<int>> output;
         int i=0, j=0;
         while (i < firstList.size() && j < secondList.size()) {
             int prev = std::max(firstList[i][0], secondList[j][0]);
